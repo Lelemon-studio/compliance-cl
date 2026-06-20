@@ -7,8 +7,8 @@
 ### Cumplimiento de datos para tu SaaS chileno, desde la terminal
 
 Una skill de [Claude Code](https://claude.ai/code) que lee tu código, arma los documentos de
-cumplimiento y te dice qué resolver tú y qué dejarle al abogado. Cada conclusión apunta al artículo
-de la ley que la respalda.
+cumplimiento y te deja listo para cumplir **sin abogado**. Cada conclusión apunta al artículo de la ley
+que la respalda; el abogado queda como un plus opcional, no como requisito para partir.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Status](https://img.shields.io/badge/status-alpha-orange)
@@ -21,12 +21,13 @@ de la ley que la respalda.
 
 ## Por qué
 
-La Ley 21.719 de datos entra en vigencia el 1 de diciembre de 2026 y las multas llegan a 20.000 UTM.
-La Ley 21.595 de delitos económicos ya rige, incluso para una SpA de una persona. Casi nadie llega
-preparado.
+La Ley 21.719 de datos entra en vigencia el 1 de diciembre de 2026, con multas de 5.000 a 20.000 UTM
+según la gravedad. La Ley 21.595 de delitos económicos ya rige, incluso para una SpA de una persona.
+Casi nadie llega preparado.
 
-compliance-cl hace el trabajo mecánico en una corrida: el inventario, los documentos y el diagnóstico
-técnico. Tu abogado revisa y firma lo que de verdad lo necesita, en vez de cobrarte por partir de cero.
+compliance-cl hace el trabajo completo en una corrida: el inventario, los documentos y el diagnóstico
+técnico. La idea es que un founder arme su cumplimiento solo, sin equipo legal ni un estudio cobrándole
+varios palos por el trabajo mecánico.
 
 ## Qué hace
 
@@ -39,8 +40,8 @@ Corres `/compliance-cl` sobre tu repo y:
 4. Arma los documentos: RAT, política de privacidad, DPA, plan de brechas, modelo de prevención de
    delitos, código de ética y matriz de riesgos.
 5. Guarda el estado en `.compliance/` y lo versiona, así ves qué mejora o qué se rompe entre corridas.
-6. Te dice qué llevar al abogado y trae guías para cuando pase algo: un derecho ARCO, una brecha, una
-   fiscalización.
+6. Te explica cada decisión con su artículo y trae guías para cuando pase algo: un derecho ARCO, una
+   brecha, una fiscalización.
 
 ## Marcos cubiertos
 
@@ -67,7 +68,7 @@ La skill escribe en el repo auditado un estado vivo y versionable:
 ```text
 .compliance/
 ├── state.json        # postura por marco + estado de cada control (con evidencia archivo:línea)
-├── RESUMEN.md        # brechas priorizadas + qué llevar a abogado + diff vs la corrida anterior
+├── RESUMEN.md        # brechas priorizadas + qué resolviste + diff vs la corrida anterior
 ├── INSTRUCTIVO.md    # guías: derecho ARCO · brecha · fiscalización · calendario
 └── docs/
     ├── 21719-rat.md  21719-politica-privacidad.md  21719-dpa.md  21719-plan-respuesta-brechas.md
@@ -92,7 +93,7 @@ SKILL.md                          # el motor (multi-pack, se apoya en sources/)
 references/
   controls.md                     # catálogo de controles + crosswalk (un control cubre varias leyes)
   output-model.md                 # formato del estado .compliance/
-  cuando-acudir-a-abogado.md      # qué resuelves solo y qué necesita abogado
+  cuando-acudir-a-abogado.md      # por qué el abogado es opcional (lo armas tú)
   instructivo-situaciones.md      # guías operativas
   mapa-articulos-21719.md         # artículos chequeados contra el texto oficial
 packs/
@@ -105,7 +106,7 @@ sources/                          # textos legales oficiales + FUENTES.md (repro
 - [ ] Completar el mapa de artículos (transferencias internacionales, MPD/DPO).
 - [ ] Packs nuevos: GDPR, ISO 27001, SOC 2.
 - [ ] Mejor detección de cambios entre corridas.
-- [ ] Plantillas revisadas por un abogado.
+- [ ] Revisión legal opcional de las plantillas (un plus, no un requisito).
 
 ## Contribuir
 
@@ -114,8 +115,9 @@ texto oficial, y mejoras a las guías. Lee [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Aviso
 
-Esto no es asesoría legal. Genera borradores y diagnósticos para acelerarte el trabajo; valida los
-resultados con un abogado antes de publicar políticas, firmar contratos o presentarte ante la autoridad.
+Esto no es asesoría legal: un software no asume tu responsabilidad legal, la decisión final es tuya. Te
+deja listo para cumplir solo. Un abogado es un plus opcional si quieres una revisión, y solo es
+imprescindible si te fiscalizan y escala a una disputa (la representación, por ley, la hace un abogado).
 Ver [`NOTICE.md`](NOTICE.md).
 
 ## Licencia

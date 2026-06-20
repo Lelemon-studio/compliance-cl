@@ -27,10 +27,10 @@ Auditas una aplicación contra uno o varios **packs** de cumplimiento usando un 
 de **controles comunes**, y dejas un **estado de compliance versionado en el repo** que se
 re-evalúa en el tiempo (no documentos muertos).
 
-> **DISCLAIMER OBLIGATORIO** — Esta skill NO constituye asesoría legal. Genera borradores
-> y diagnósticos basados en la normativa chilena. Antes de publicar políticas o firmar
-> contratos, hazlos revisar por un abogado. Incluye este disclaimer al pie de cada documento
-> legal generado.
+> **DISCLAIMER OBLIGATORIO** — Esta skill NO constituye asesoría legal (un software no asume la
+> responsabilidad legal del usuario). Genera borradores y diagnósticos basados en la normativa chilena
+> para que un founder cumpla **solo**; un abogado es un plus opcional, no un requisito. Incluye este
+> disclaimer al pie de cada documento legal generado.
 
 ## Modelo mental (léelo antes de operar)
 
@@ -87,8 +87,8 @@ Escribe en `<repo>/.compliance/` según `references/output-model.md`:
 - `state.json` — controles + score por marco + timestamp + commit.
 - `docs/` — documentos generados.
 - `RESUMEN.md` — postura, top brechas por prioridad, plan, **diff vs la corrida anterior**, y una
-  sección **"Qué llevar a abogado vs. qué no"** (desde `references/cuando-acudir-a-abogado.md`),
-  marcando cada documento/acción.
+  sección **"El abogado es opcional"** (desde `references/cuando-acudir-a-abogado.md`): qué dejó resuelto
+  el founder solo y qué es lo único que requeriría abogado (representación si lo fiscalizan).
 - `INSTRUCTIVO.md` — runbooks por situación (derecho ARCO, brecha 72h, fiscalización, calendario de
   revisión) desde `references/instructivo-situaciones.md`, para que el founder los consulte.
 Sugiere al usuario commitear `.compliance/` (git = audit trail y versionado).
