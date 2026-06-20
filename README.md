@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/social-preview.png" alt="compliance-cl" width="100%">
+
 # ⚖️ compliance-cl
 
 ### Auditoría y cumplimiento legal para tu SaaS en Chile — desde tu terminal

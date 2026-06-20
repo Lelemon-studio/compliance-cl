@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1280px; height:640px; }
+  body{
+    font-family:"Segoe UI",system-ui,Arial,sans-serif;
+    background:#0b0b0d;
+    color:#fff; width:1280px; height:640px; position:relative; overflow:hidden;
+  }
+  /* franja inferior bandera de Chile */
+  .flag{ position:absolute; left:0; right:0; bottom:0; height:14px; display:flex; }
+  .flag .blue{ width:30%; background:#0033a0; }
+  .flag .white{ width:35%; background:#fff; }
+  .flag .red{ width:35%; background:#da291c; }
+  /* glow limon */
+  .glow{ position:absolute; width:680px; height:680px; right:-160px; top:-220px;
+    background:radial-gradient(circle, rgba(245,209,66,.18), transparent 60%); }
+  .wrap{ position:absolute; inset:0; padding:74px 80px; display:flex; flex-direction:column; justify-content:center; }
+  .top{ display:flex; align-items:center; gap:16px; margin-bottom:26px; }
+  /* canton azul con estrella (guiño Chile) */
+  .canton{ width:74px; height:74px; background:#0033a0; border-radius:16px; display:flex;
+    align-items:center; justify-content:center; box-shadow:0 8px 30px rgba(0,51,160,.45); }
+  .star{ color:#fff; font-size:42px; line-height:1; }
+  .kicker{ font-size:22px; letter-spacing:3px; text-transform:uppercase; color:#f5d142; font-weight:700; }
+  h1{ font-size:104px; font-weight:800; letter-spacing:-2px; line-height:1; }
+  h1 .lemon{ color:#f5d142; }
+  .tag{ font-size:34px; color:#cfd3dc; margin-top:24px; max-width:1020px; line-height:1.3; }
+  .chips{ display:flex; gap:14px; margin-top:40px; flex-wrap:wrap; }
+  .chip{ font-size:23px; padding:12px 22px; border-radius:999px; background:#16171b;
+    border:1px solid #2a2c33; color:#e8eaf0; }
+  .chip b{ color:#f5d142; }
+  .brand{ position:absolute; right:80px; bottom:48px; font-size:24px; color:#8b8f99; }
+  .brand b{ color:#f5d142; }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="wrap">
+    <div class="top">
+      <div class="canton"><span class="star">★</span></div>
+      <span class="kicker">Chile · Claude Code skill</span>
+    </div>
+    <h1>compliance<span class="lemon">-cl</span></h1>
+    <div class="tag">Auditoría y cumplimiento legal para tu SaaS — contra el texto oficial de la ley, nada inventado.</div>
+    <div class="chips">
+      <div class="chip">⚖️ Ley <b>21.719</b> Datos</div>
+      <div class="chip">🛡️ Ley <b>21.595</b> Delitos Económicos</div>
+      <div class="chip">📄 RAT · Política · DPA · MPD</div>
+      <div class="chip">🔒 MIT · Open Source</div>
+    </div>
+  </div>
+  <div class="brand">Hecho con 🍋 por <b>Lelemon Studio</b></div>
+  <div class="flag"><div class="blue"></div><div class="white"></div><div class="red"></div></div>
+</body>
+</html>
