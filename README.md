@@ -2,46 +2,45 @@
 
 <img src="assets/hero.png" alt="compliance-cl" width="100%">
 
-# ⚖️ compliance-cl
+# compliance-cl
 
-### Auditoría y cumplimiento legal para tu SaaS en Chile — desde tu terminal
+### Cumplimiento de datos para tu SaaS chileno, desde la terminal
 
-Una skill de [Claude Code](https://claude.ai/code) que **lee tu código**, **genera la documentación**
-de cumplimiento y te dice **qué necesita abogado y qué no** — todo contrastado contra el **texto
-oficial de la ley**, nada inventado.
+Una skill de [Claude Code](https://claude.ai/code) que lee tu código, arma los documentos de
+cumplimiento y te dice qué resolver tú y qué dejarle al abogado. Cada conclusión apunta al artículo
+de la ley que la respalda.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Status](https://img.shields.io/badge/status-alpha-orange)
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-skill-8A2BE2)
-![Hecho en](https://img.shields.io/badge/%F0%9F%87%A8%F0%9F%87%B1-Ley%2021.719%20%2B%2021.595-1f6feb)
+![Chile](https://img.shields.io/badge/%F0%9F%87%A8%F0%9F%87%B1-Ley%2021.719%20%2B%2021.595-1f6feb)
 
 </div>
 
 ---
 
-## ¿Por qué?
+## Por qué
 
-La **Ley 21.719** de Protección de Datos entra en vigencia el **1 de diciembre de 2026**, con multas de
-hasta **20.000 UTM**. La **Ley 21.595** de Delitos Económicos **ya está vigente** y aplica incluso a una
-SpA de una persona. La mayoría de las startups llega sin nada preparado.
+La Ley 21.719 de datos entra en vigencia el 1 de diciembre de 2026 y las multas llegan a 20.000 UTM.
+La Ley 21.595 de delitos económicos ya rige, incluso para una SpA de una persona. Casi nadie llega
+preparado.
 
-`compliance-cl` te lleva del **0 a un esqueleto defendible** en una corrida — sin pagar un estudio para
-el trabajo mecánico, dejando al abogado solo lo que de verdad requiere su firma.
+compliance-cl hace el trabajo mecánico en una corrida: el inventario, los documentos y el diagnóstico
+técnico. Tu abogado revisa y firma lo que de verdad lo necesita, en vez de cobrarte por partir de cero.
 
-## ¿Qué hace?
+## Qué hace
 
-```text
-/compliance-cl
-```
+Corres `/compliance-cl` sobre tu repo y:
 
-1. 🧭 **Te guía** — empresa, rol (responsable / encargado), qué leyes auditar.
-2. 🔍 **Lee tu repo** — qué datos personales tocas y a qué proveedores viajan (transferencias).
-3. ✅ **Evalúa controles** — un catálogo común que puntúa **varias leyes a la vez** (crosswalk).
-4. 📄 **Genera la documentación** — RAT, política de privacidad, DPA, plan de brechas, modelo de
-   prevención de delitos, código de ética, matriz de riesgos.
-5. 🗂️ **Deja un estado versionado** en `.compliance/` — re-corrible para ver **avance / drift**.
-6. 👔 **Te dice qué llevar a abogado** y trae **instructivos** para cada situación (derecho ARCO,
-   brecha, fiscalización).
+1. Te pregunta lo básico: empresa, si eres responsable o encargado de los datos, y qué leyes auditar.
+2. Lee el código y mapea qué datos personales guardas y a qué proveedores se van (las transferencias
+   fuera de Chile).
+3. Evalúa los controles con un catálogo que puntúa varias leyes a la vez.
+4. Arma los documentos: RAT, política de privacidad, DPA, plan de brechas, modelo de prevención de
+   delitos, código de ética y matriz de riesgos.
+5. Guarda el estado en `.compliance/` y lo versiona, así ves qué mejora o qué se rompe entre corridas.
+6. Te dice qué llevar al abogado y trae guías para cuando pase algo: un derecho ARCO, una brecha, una
+   fiscalización.
 
 ## Marcos cubiertos
 
@@ -49,12 +48,12 @@ el trabajo mecánico, dejando al abogado solo lo que de verdad requiere su firma
 |------|-----|--------|-------|
 | `ley-21719` | Protección de Datos Personales | vigencia **1-dic-2026** | consentimiento, derechos ARCO, RAT, DPA, seguridad, brechas, transferencias |
 | `ley-21595` | Delitos Económicos (MPD) | **ya vigente** | modelo de prevención, código de ética, matriz de riesgos |
-| _próximos_ | GDPR · ISO 27001 · SOC 2 | extensible | agregar un marco = agregar un `pack` |
+| _próximos_ | GDPR · ISO 27001 · SOC 2 | extensible | agregar un marco es agregar un `pack` |
 
 ## Quickstart
 
 ```bash
-# 1. Instalar (la skill ES este repo)
+# 1. Instalar (la skill es este repo)
 git clone https://github.com/Lelemon-studio/compliance-cl ~/.claude/skills/compliance-cl
 
 # 2. En Claude Code, dentro del repo a auditar:
@@ -68,33 +67,34 @@ La skill escribe en el repo auditado un estado vivo y versionable:
 ```text
 .compliance/
 ├── state.json        # postura por marco + estado de cada control (con evidencia archivo:línea)
-├── RESUMEN.md        # brechas priorizadas + "qué llevar a abogado" + diff vs corrida anterior
-├── INSTRUCTIVO.md    # runbooks: derecho ARCO · brecha 72h · fiscalización · calendario
+├── RESUMEN.md        # brechas priorizadas + qué llevar a abogado + diff vs la corrida anterior
+├── INSTRUCTIVO.md    # guías: derecho ARCO · brecha · fiscalización · calendario
 └── docs/
     ├── 21719-rat.md  21719-politica-privacidad.md  21719-dpa.md  21719-plan-respuesta-brechas.md
     └── 21595-modelo-prevencion-delitos.md  21595-codigo-etica.md  21595-matriz-riesgos.md
 ```
 
-> **git = audit trail.** Cada corrida es un commit; la postura sube o baja en el tiempo, con respaldo.
+Cada corrida es un commit, así que git te queda como historial: ves cuándo subió o bajó tu postura y
+quién cambió qué.
 
-## Nada inventado 🔒
+## Respaldado en la ley
 
-El contenido legal se contrasta contra el **corpus oficial** incluido en [`sources/`](sources/):
-PDF del Diario Oficial + XML de Ley Chile, con [`FUENTES.md`](sources/FUENTES.md) (URLs, `idNorma`,
-SHA-256, comando de re-descarga) y [`mapa-articulos-21719.md`](references/mapa-articulos-21719.md)
-(artículos verificados línea por línea). Toda afirmación cita **ley + artículo + archivo**; lo no
-verificable se marca `[verificar contra fuente oficial]`.
+El contenido legal se contrasta contra el texto oficial que viene en [`sources/`](sources/): el PDF del
+Diario Oficial y los XML de Ley Chile, con [`FUENTES.md`](sources/FUENTES.md) (URL, `idNorma`, SHA-256 y
+el comando para volver a bajarlos). En [`mapa-articulos-21719.md`](references/mapa-articulos-21719.md)
+cada artículo está chequeado contra el texto, con la línea donde aparece. Lo que no se puede confirmar
+ahí queda marcado como `[verificar contra fuente oficial]`.
 
 ## Estructura
 
 ```text
-SKILL.md                          # el motor (multi-pack, grounding contra sources/)
+SKILL.md                          # el motor (multi-pack, se apoya en sources/)
 references/
-  controls.md                     # catálogo de controles + crosswalk (1 control → varias leyes)
+  controls.md                     # catálogo de controles + crosswalk (un control cubre varias leyes)
   output-model.md                 # formato del estado .compliance/
-  cuando-acudir-a-abogado.md      # qué resuelves solo vs qué necesita abogado
-  instructivo-situaciones.md      # runbooks operativos
-  mapa-articulos-21719.md         # artículos verificados contra el texto oficial
+  cuando-acudir-a-abogado.md      # qué resuelves solo y qué necesita abogado
+  instructivo-situaciones.md      # guías operativas
+  mapa-articulos-21719.md         # artículos chequeados contra el texto oficial
 packs/
   ley-21719/  ley-21595/          # obligaciones + plantillas por marco
 sources/                          # textos legales oficiales + FUENTES.md (reproducible)
@@ -102,24 +102,22 @@ sources/                          # textos legales oficiales + FUENTES.md (repro
 
 ## Roadmap
 
-- [ ] Completar el mapa de artículos verificado (transferencias internacionales, MPD/DPO).
+- [ ] Completar el mapa de artículos (transferencias internacionales, MPD/DPO).
 - [ ] Packs nuevos: GDPR, ISO 27001, SOC 2.
-- [ ] Detección de drift más fina en la re-corrida.
-- [ ] Validación legal de las plantillas por un abogado.
+- [ ] Mejor detección de cambios entre corridas.
+- [ ] Plantillas revisadas por un abogado.
 
 ## Contribuir
 
-Issues y PRs bienvenidos — sobre todo nuevos packs, correcciones de artículos **contrastadas contra el
-texto oficial**, y mejoras a los runbooks. Lee [`CONTRIBUTING.md`](CONTRIBUTING.md).
+Se agradecen issues y PRs, sobre todo packs nuevos, correcciones de artículos chequeadas contra el
+texto oficial, y mejoras a las guías. Lee [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-## ⚠️ Aviso
+## Aviso
 
-**No es asesoría legal.** Genera borradores y diagnósticos para acelerar tu cumplimiento; valida los
+Esto no es asesoría legal. Genera borradores y diagnósticos para acelerarte el trabajo; valida los
 resultados con un abogado antes de publicar políticas, firmar contratos o presentarte ante la autoridad.
 Ver [`NOTICE.md`](NOTICE.md).
 
 ## Licencia
 
-[MIT](LICENSE) © 2026 [Lelemon SpA](https://lelemon.cl)
-
-<div align="center"><sub>Hecho con 🍋 por Lelemon Studio</sub></div>
+[MIT](LICENSE) © 2026 Lelemon SpA

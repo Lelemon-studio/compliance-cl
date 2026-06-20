@@ -2,11 +2,11 @@
 
 ¡Gracias por aportar! Este proyecto ayuda a empresas chilenas a preparar su cumplimiento legal.
 
-## Principio rector: nada inventado
+## Principio rector: todo citado a la ley
 
 Toda afirmación legal **debe** poder contrastarse contra el texto oficial en `sources/` y citar
-**ley + artículo + archivo**. Lo no verificable se marca `[verificar contra fuente oficial]`. No se
-aceptan afirmaciones normativas basadas solo en blogs o resúmenes secundarios.
+**ley + artículo + archivo**. Lo que no se pueda confirmar ahí se marca `[verificar contra fuente
+oficial]`. No se aceptan afirmaciones normativas basadas solo en blogs o resúmenes secundarios.
 
 ## Cómo aportar
 
