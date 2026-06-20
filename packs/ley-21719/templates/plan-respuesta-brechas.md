@@ -1,7 +1,7 @@
 # Plan de Respuesta a Brechas de Datos Personales
 
 **Empresa:** [RAZÓN SOCIAL] · **Responsable del plan:** [NOMBRE / CARGO] · **Contacto:** [CORREO]
-**Plazo legal clave:** notificar a la Agencia **dentro de 72 horas** desde que se toma conocimiento.
+**Plazo legal:** notificar a la Agencia **sin dilaciones indebidas** (Art. 14 sexies; la ley NO fija un plazo de 72 horas — eso es estándar GDPR, no chileno). Mantener además un **registro de las vulneraciones** (ver `registro-vulneraciones.md`), aunque no se notifiquen.
 
 ## Roles
 - **Coordinador de incidente:** [NOMBRE]. **Equipo técnico:** [NOMBRES]. **Apoyo legal:** [CONTACTO].
@@ -16,9 +16,10 @@
 2. Riesgo para los titulares (alto / no alto).
 3. Si hay proveedor involucrado, exigirle la información.
 
-## Fase 3 — Notificación (antes de 72h)
+## Fase 3 — Notificación (sin dilaciones indebidas)
 1. **A la Agencia:** naturaleza, categorías y volumen, consecuencias probables, medidas, contacto.
-2. **A los titulares** (si riesgo alto): qué pasó, qué datos, qué pueden hacer, contacto.
+2. **A los titulares:** cuando haya riesgo alto, y también si afecta **datos sensibles, económicos/
+   financieros/bancarios o de niños, niñas y adolescentes**: qué pasó, qué datos, qué pueden hacer, contacto.
 
 ## Fase 4 — Cierre y mejora
 Causa raíz · medidas correctivas · actualizar RAT y este plan.

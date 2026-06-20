@@ -22,6 +22,9 @@
 | **Sanciones (montos)** | **Art. 35** | leves: amonestación o **hasta 5.000 UTM**; graves: **hasta 10.000 UTM**; gravísimas: **hasta 20.000 UTM** | L1855 |
 | Reincidencia | Art. 35 (inciso) | empresas de menor tamaño (Ley 20.416) que reincidan: **2% o 4% de ingresos anuales** del último año; def. de reincidencia = sancionado 2+ veces | L1870, L1877, L1899 |
 | **Gracia MIPYME (12 meses)** | **Art. sexto transitorio** | primeros doce meses desde la vigencia | L2529 |
+| Plazo de respuesta a derechos | Art. 11 (verificar nº) | 30 días corridos, prorrogable **una sola vez** por 30 más | L478 |
+| Gratuidad de derechos | (verificar nº) | rectificación/supresión/oposición siempre gratis; **acceso gratis al menos trimestral** | L430-L434 |
+| Datos sensibles | Art. 16 | consentimiento expreso/reforzado; excepciones tasadas | L863 |
 
 ## Correcciones vs. fuentes secundarias (lo que estaba mal/impreciso)
 - **Sanciones NO son "Art. 34 bis/ter/quáter"** → son **Art. 34** (clasificación) + **Art. 35** (montos).

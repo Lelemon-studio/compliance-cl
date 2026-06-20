@@ -1,49 +1,45 @@
 # Pack: Ley 21.719 — Protección de Datos Personales
 
-> Vigencia **1-dic-2026** (publicada 13-dic-2024). Aplica a todos sin umbral. Gracia MIPYME:
-> amonestación en vez de multa los primeros 12 meses (dic-2026 → dic-2027).
+> Vigencia **1-dic-2026** (publicada 13-dic-2024). Aplica a todos sin umbral. Gracia MIPYME (Ley 20.416):
+> los primeros 12 meses (dic-2026 → dic-2027) la Agencia puede aplicar amonestación en vez de multa
+> (Art. sexto transitorio). Numeración verificada en `references/mapa-articulos-21719.md`.
 
 ## Controles que exige (ver `references/controls.md`)
-`gov-responsable` (DPO si aplica), `gov-registro` (RAT), `gov-politicas`, `gov-denuncias`
-(canal de contacto/derechos), `data-licitud`, `data-derechos`, `data-info`, `data-minimizacion`,
-`data-dpa`, `data-transfer`, `sec-tls`, `sec-rest`, `sec-passwords`, `sec-mfa`, `sec-logs`,
-`sec-tenant`, `sec-secrets`, `sec-backups`, `inc-brechas`.
+`gov-responsable`, `gov-registro` (RAT), `gov-politicas`, `gov-denuncias`/`data-rights-channel`,
+`data-licitud`, `data-consent-text`, `data-derechos`, `data-info`, `data-minimizacion`, `data-dpa`,
+`data-transfer`, `data-eipd`, `data-privacy-by-design`, `data-pseudonym`, `sec-tls`, `sec-rest`,
+`sec-passwords`, `sec-mfa`, `sec-logs`, `sec-tenant`, `sec-secrets`, `sec-backups`, `inc-brechas`.
 
 ## Obligaciones clave (resumen)
-- **Roles:** responsable (decide fines) vs encargado (procesa por cuenta de otro). Un SaaS suele
-  ser encargado de los datos de sus clientes y responsable de sus propios leads/usuarios. El
-  encargado NO usa los datos para fines propios sin consentimiento aparte.
-- **Bases de licitud:** consentimiento opt-in, contrato, obligación legal, interés legítimo.
-- **Derechos del titular:** acceso, rectificación, cancelación, oposición, **portabilidad**,
-  **bloqueo** — responder en **30 días**, gratis.
-- **Deber de información** al captar datos.
-- **Seguridad** proporcional: TLS, cifrado en reposo, MFA, logs, segregación por tenant.
-- **Brechas (Art. 14 sexies):** reportar **"sin dilaciones indebidas"** (la ley NO fija 72h literal —
-  eso es estándar GDPR); **deber de registrar** las vulneraciones; avisar a titulares si afecta datos
-  sensibles o de niños/niñas. Si la brecha es de un proveedor, igual notifica el responsable → el DPA
-  debe obligar al proveedor a avisar.
-- **DPO:** obligatorio solo para organismos públicos o tratamiento de datos sensibles a gran escala.
-- **RAT:** registro interno obligatorio (la Agencia puede exigirlo).
-- **Transferencias internacionales** (AWS/Railway/Cloudflare/Resend/Google/etc. fuera de Chile):
-  requieren mecanismo — adecuación, cláusulas contractuales modelo, RCV, o consentimiento. NOTA: el
-  **Ministerio de Economía aprobó cláusulas contractuales modelo en dic-2025** (basadas en RIPD),
-  transitorias hasta que la Agencia dicte las suyas. NO basta el DPA del proveedor solo: incorporar
-  las cláusulas modelo al contrato + declarar la transferencia en la política.
-- **EIPD** ante tratamientos de alto riesgo.
+- **Roles:** responsable (decide fines) vs encargado (Art. 15 bis: trata por cuenta de otro, según
+  contrato; no usa los datos para fines propios).
+- **Consentimiento (Art. 12):** previo, libre, específico, informado e inequívoco (acto afirmativo,
+  casilla NO premarcada) y **revocable**. Carga de la prueba: del responsable.
+- **Deber de información (Art. 14 ter):** identidad, finalidad, base, destinatarios, transferencias,
+  retención, derechos, decisiones automatizadas, origen y cómo recurrir a la Agencia.
+- **Derechos:** acceso, rectificación, supresión, oposición, portabilidad, bloqueo. Plazo **30 días
+  corridos**, prorrogable **una sola vez por 30 más**. Rectificación/supresión/oposición siempre gratis;
+  acceso gratis al menos trimestralmente.
+- **Seguridad (Art. 14 quinquies)** proporcional + **privacy by design/default (Art. 14 quáter)** +
+  seudonimización. **Brechas (Art. 14 sexies):** reportar **sin dilaciones indebidas** (NO 72h),
+  registrar las vulneraciones, avisar a titulares si riesgo alto o si afecta datos sensibles/
+  económicos/financieros/niños.
+- **Datos sensibles (Art. 16):** consentimiento expreso y reforzado.
+- **DPO:** obligatorio solo para organismos públicos o datos sensibles a gran escala; en micro/pyme lo
+  asume el dueño.
+- **EIPD (Art. 15 ter):** obligatoria ante alto riesgo (perfilado, decisiones automatizadas, sensibles
+  masivos, observación sistemática, tecnología nueva).
+- **Transferencias internacionales:** mecanismo válido = **cláusulas contractuales modelo** del Min.
+  Economía (en `sources/`), adecuación, normas corporativas vinculantes o consentimiento.
 
-## Sanciones (Art. 34 clasificación + Art. 35 montos — verificado contra el texto)
+## Sanciones (Art. 34 clasificación + Art. 35 montos — verificado)
 Leve: amonestación o hasta 5.000 UTM · grave hasta 10.000 UTM · gravísima hasta 20.000 UTM.
-Reincidencia (Art. 35): empresas de menor tamaño (Ley 20.416) → 2% o 4% de ingresos anuales del último
-año. Gracia MIPYME 12 meses = Art. sexto transitorio. Fiscaliza la Agencia de Protección de Datos.
-Ver mapa verificado en `references/mapa-articulos-21719.md`.
+Reincidencia (Art. 35): empresas de menor tamaño → 2% o 4% de ingresos anuales. Fiscaliza la Agencia.
 
 ## Atenuante
-**MPI** (Modelo de Prevención de Infracciones), voluntario, lo certifica la Agencia (no requiere
-abogado ni tercero acreditado). Reduce sanciones.
+**MPI** (Modelo de Prevención de Infracciones, Arts. 49-53), voluntario, lo certifica la Agencia.
 
-## Documentos a generar (templates/)
-- `rat.md` → Registro de Actividades de Tratamiento.
-- `politica-privacidad.md` → política para publicar (tras revisión legal).
-- `dpa.md` → contrato de tratamiento con clientes/proveedores.
-- `plan-respuesta-brechas.md` → procedimiento de notificación 72h.
-Se escriben en `<repo>/.compliance/docs/` con prefijo `21719-`.
+## Documentos a generar (templates/ → `<repo>/.compliance/docs/` con prefijo `21719-`)
+`rat.md`, `politica-privacidad.md`, `consentimiento.md` (opt-in + aviso + sensibles), `canal-derechos.md`,
+`dpa.md`, `anexo-transferencias.md`, `plan-respuesta-brechas.md`, `registro-vulneraciones.md`,
+`eipd.md` (si el test del Art. 15 ter da obligatoria).

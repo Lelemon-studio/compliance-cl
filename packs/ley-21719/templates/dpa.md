@@ -19,8 +19,8 @@ Responsable, con el solo fin de prestar [SERVICIO]. Duración: la del contrato p
 1. Tratar los datos **solo según instrucciones**; no usarlos para fines propios.
 2. Garantizar la **confidencialidad** del personal autorizado.
 3. Aplicar **seguridad** adecuada: [TLS, cifrado en reposo, control de acceso, MFA, logs, segregación].
-4. **Notificar al Responsable sin dilación** (y dentro de [24h]) cualquier brecha, para permitirle
-   cumplir su plazo de 72h ante la Agencia.
+4. **Notificar al Responsable sin dilación** (y dentro de [24h]) cualquier brecha, para que el Responsable
+   notifique a la Agencia sin dilaciones indebidas (Art. 14 sexies).
 5. Asistir en la atención de **derechos de los titulares** (ARCO, portabilidad, bloqueo).
 6. **Sub-encargados:** solo con autorización y trasladándoles estas obligaciones. Actuales: [LISTA].
 7. Al terminar, **devolver o eliminar** los datos según indique el Responsable.

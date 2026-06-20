@@ -13,6 +13,7 @@ Si algo no se puede verificar contra estos textos, se marca `[verificar contra f
 | `ley-21595-delitos-economicos.xml` | Ley 21.595 Delitos Económicos | 1195119 | XML | `17cac690…` | Ley Chile (BCN) |
 | `ley-20393-resp-penal-pj.xml` | Ley 20.393 Resp. Penal PJ | 1008668 | XML | `35d67a14…` | Ley Chile (BCN) |
 | `ley-19628-consolidada.xml` | Ley 19.628 (texto base que la 21.719 modifica) | 141599 | XML | `4b4a6d85…` | Ley Chile (BCN) |
+| `clausulas-modelo-transferencia-economia.pdf/.txt` | Cláusulas Contractuales Modelo (transferencia internacional) | RAEX202503748 | **PDF + texto** | `55f78aef…` | Diario Oficial 19-12-2025 |
 
 ## Notas de validez (IMPORTANTE)
 - **La 21.719 MODIFICA la Ley 19.628**: el articulado sustantivo de datos (consentimiento,
@@ -26,9 +27,10 @@ Si algo no se puede verificar contra estos textos, se marca `[verificar contra f
 ## Pendientes de incorporar (con URL, aún no descargados)
 - **DS 662/2025** (reglamento del Modelo de Prevención de Infracciones, Min. Hacienda/Economía):
   estaba en toma de razón en Contraloría — verificar publicación en Diario Oficial.
-- **Cláusulas Contractuales Modelo** para transferencias internacionales (Min. Economía, dic-2025):
-  https://www.economia.gob.cl (Resolución; basadas en modelo RIPD).
 - **Guía oficial de implementación**: https://wikiguias.digital.gob.cl/es/datos-personales/guia-datos-personales
+
+> Cláusulas modelo de transferencia: ✅ ya descargadas
+> (`clausulas-modelo-transferencia-economia.pdf`, Diario Oficial 19-12-2025).
 
 ## Cómo re-descargar (reproducibilidad)
 ```bash
@@ -37,6 +39,8 @@ UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124.0 Safari/537.36"
 curl -L -A "$UA" "https://www.diariooficial.interior.gob.cl/publicaciones/2024/12/13/44023/01/2583630.pdf" -o ley-21719-diariooficial.pdf
 # XML estructurado (cambiar idNorma): 21719=1209272, 21595=1195119, 20393=1008668, 19628=141599
 curl -L -A "$UA" "https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=1209272" -o ley-21719-datos.xml
+# Cláusulas contractuales modelo (transferencia internacional, Min. Economía)
+curl -L -A "$UA" "https://www.diariooficial.interior.gob.cl/publicaciones/2025/12/19/44328/01/2742586.pdf" -o clausulas-modelo-transferencia-economia.pdf
 # Verificar integridad
 sha256sum *.pdf *.xml
 ```

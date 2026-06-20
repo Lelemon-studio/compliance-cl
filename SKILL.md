@@ -1,16 +1,14 @@
 ---
 name: compliance-cl
-description: |
-  Motor de cumplimiento legal para empresas/SaaS en Chile. Audita un repo contra
-  uno o varios marcos (packs) — Ley 21.719 de Datos Personales, Ley 21.595 de
-  Delitos Económicos (Modelo de Prevención de Delitos), y extensible a GDPR/ISO
-  27001/SOC 2 — usando un catálogo de CONTROLES comunes que mapean a varias leyes a
-  la vez. Genera la documentación, evalúa los controles y guarda un ESTADO de
-  compliance versionado en el repo (`.compliance/`) que se re-corre en el tiempo y
-  muestra avance/drift. Usar cuando el usuario quiera auditar o preparar el
-  cumplimiento legal de una app, SaaS o sitio web en Chile.
+description: >-
+  Esta skill se usa cuando el usuario pide "armar el compliance", "cumplir la Ley 21.719",
+  "preparar la protección de datos", "auditar datos personales", "generar política de privacidad /
+  DPA / RAT / EIPD / consentimiento", "cumplir la ley de datos en Chile" o "modelo de prevención de
+  delitos (Ley 21.595)". Audita un repo y genera, SIN abogado, toda la documentación de cumplimiento
+  para un SaaS o empresa en Chile, contrastada contra el texto oficial de la ley. Cubre la Ley 21.719
+  (datos personales, vigencia dic-2026) y la 21.595 (delitos económicos, ya vigente), y es extensible
+  a más marcos (packs).
 license: MIT
-user-invocable: true
 allowed-tools:
   - Read
   - Write
@@ -21,91 +19,92 @@ allowed-tools:
   - AskUserQuestion
 ---
 
-# compliance-cl — Motor de cumplimiento (Chile), multi-marco y vivo
+# compliance-cl — Motor de cumplimiento (Chile), multi-marco y self-service
 
-Auditas una aplicación contra uno o varios **packs** de cumplimiento usando un catálogo
-de **controles comunes**, y dejas un **estado de compliance versionado en el repo** que se
-re-evalúa en el tiempo (no documentos muertos).
+Auditar una aplicación contra uno o varios **packs** de ley, **resolver las decisiones** con el criterio
+de la ley y **generar toda la documentación rellenada** (sin dejar tarea), dejando un **estado versionado**
+en el repo que se re-corre en el tiempo. Objetivo: que un founder cumpla **solo**; el abogado es opcional
+(ver `references/cuando-acudir-a-abogado.md`).
 
-> **DISCLAIMER OBLIGATORIO** — Esta skill NO constituye asesoría legal (un software no asume la
-> responsabilidad legal del usuario). Genera borradores y diagnósticos basados en la normativa chilena
-> para que un founder cumpla **solo**; un abogado es un plus opcional, no un requisito. Incluye este
+> **DISCLAIMER OBLIGATORIO** — No constituye asesoría legal (un software no asume la responsabilidad legal
+> del usuario). Genera borradores fundados en la normativa chilena para cumplir sin abogado. Incluir este
 > disclaimer al pie de cada documento legal generado.
 
-## Modelo mental (léelo antes de operar)
-
-- **Controles** = unidades reutilizables de cumplimiento (ej. "MFA", "cifrado en reposo",
-  "canal de denuncias", "oficial designado"). Un mismo control **satisface varios marcos a
-  la vez**. Catálogo + crosswalk: `references/controls.md`.
-- **Packs** = una ley/marco cada uno (`packs/<id>/pack.md`): qué obligaciones tiene, qué
-  controles exige y qué documentos genera (sus `templates/`).
-- **Estado** = el resultado vive en `<repo>/.compliance/` versionado por git. Re-correr la
-  skill compara contra el estado anterior y reporta avance/**drift**. Formato: `references/output-model.md`.
-- **Fuentes (verdad)** = los textos OFICIALES de las leyes están en `sources/` (ver `sources/FUENTES.md`).
-  Toda afirmación legal se contrasta contra ellos y cita **ley + artículo + archivo**; lo no verificable
-  se marca `[verificar contra fuente oficial]`. **NADA inventado ni basado en blogs.**
-
-Packs disponibles hoy: `ley-21719` (Datos Personales), `ley-21595` (Delitos Económicos / MPD).
+## Modelo mental
+- **Controles** = unidades reutilizables que satisfacen varios marcos a la vez. Catálogo + crosswalk:
+  `references/controls.md`.
+- **Packs** = una ley cada uno (`packs/<id>/pack.md`): obligaciones, controles que exige y documentos a
+  generar. Hoy: `ley-21719`, `ley-21595`.
+- **Estado** = el output vive en `<repo>/.compliance/` versionado por git. Formato: `references/output-model.md`.
+- **Fuentes (verdad)** = textos OFICIALES en `sources/` (`FUENTES.md`). Toda afirmación legal cita
+  **ley + artículo + archivo**; lo no verificable se marca `[verificar contra fuente oficial]`. NADA
+  inventado. Numeración verificada: `references/mapa-articulos-21719.md`.
 
 ## Flujo
 
-### Fase 0 — Encuadre
-1. Muestra el disclaimer.
-2. Pregunta/confirma:
-   - Repo a auditar (ruta).
-   - Qué **packs** activar (por defecto: `ley-21595` + `ley-21719`, los dos obligatorios; `21595`
-     ya está vigente).
-   - Datos de la empresa: razón social, RUT, domicilio, correo de contacto, tamaño (para
-     proporcionalidad y para llenar documentos).
-   - Para cada flujo de datos: rol **responsable** vs **encargado** (clave en `ley-21719`).
-   Lo que falte queda `[COMPLETAR]`; no inventes datos legales ni de la empresa.
-3. Si ya existe `<repo>/.compliance/state.json`, **léelo**: esta corrida es una re-evaluación,
-   no un arranque desde cero.
+### Fase 0 — Encuadre (CUESTIONARIO: recoger todo para no dejar `[COMPLETAR]`)
+Mostrar el disclaimer. Luego preguntar al usuario (con `AskUserQuestion` cuando aplique) y **registrar las
+respuestas para rellenar los documentos**. No dejar placeholders salvo que el dato sea genuinamente
+desconocido; en ese caso, proponer un **default sensato** y marcarlo.
+Recoger:
+1. Repo a auditar y **packs** a activar (default: `ley-21595` + `ley-21719`).
+2. **Empresa:** razón social, RUT, domicilio, correo de contacto, tamaño, representante legal.
+3. **Responsable de datos / encargado de prevención** designado (en micro suele ser el dueño).
+4. Por flujo de datos: rol **responsable** vs **encargado**.
+5. **Plazos de retención** por tipo de dato; si no los sabe, proponer defaults razonables.
+6. ¿Tratan **datos sensibles** (salud, etc.)? ¿Usuarios en la **UE** (gatilla GDPR a futuro)?
+Si ya existe `<repo>/.compliance/state.json`, leerlo: esta corrida es una re-evaluación.
 
-### Fase 1 — Descubrimiento (lee el código, no asumas)
-Recorre el repo con Grep/Glob para levantar **evidencia** de cada control del catálogo:
-- Datos personales: esquemas/migraciones/modelos, formularios y endpoints de captura
-  (`email|phone|telefono|rut|address|direccion|nombre|name|ip|lat|lng|password`).
-- Proveedores externos y transferencias internacionales: `.env*`, `package.json`, configs
-  (AWS, Railway, Cloudflare, Resend, Google, Vercel, Stripe, Meta, OpenAI/Anthropic...).
-- Medidas técnicas: TLS, cifrado en reposo, hashing de password, MFA, logs/auditoría,
-  segregación por tenant (`organizationId`/`tenant_id`), secretos fuera del código.
-- Gobernanza/organizacional (no está en el código): pregúntalo (oficial designado, canal de
-  denuncias, código de ética, capacitación) — marca `❓` lo no verificable por código.
+### Fase 1 — Descubrimiento (leer el código, no asumir)
+Recorrer el repo con Grep/Glob para levantar evidencia de cada control:
+- Datos personales (esquemas/migraciones/modelos/formularios): `email|phone|telefono|rut|address|nombre|name|ip|lat|lng|password`; marcar **datos sensibles** específicos (salud, biométricos, menores).
+- Proveedores externos y transferencias internacionales (`.env*`, `package.json`, configs): AWS, Google, Meta, etc.; marcar los que procesan fuera de Chile.
+- Medidas técnicas: TLS, cifrado en reposo, hashing de password, MFA, logs/auditoría, segregación por tenant, secretos fuera del código, seudonimización, privacy-by-default.
+- Gobernanza (no está en el código): tomarla del cuestionario; marcar `❓` lo no verificable por código.
 
-### Fase 2 — Evaluar controles
-Para cada control en `references/controls.md`: estado (✅ cumple / ⚠️ parcial / ❌ falta /
-❓ no verificable), evidencia (`archivo:línea` o "declarado por el usuario") y remediación.
-Un control evaluado se propaga a TODOS los marcos a los que mapea.
+### Fase 2 — Evaluar controles y RESOLVER decisiones
+Para cada control de `references/controls.md`: estado (✅/⚠️/❌/❓) + evidencia + remediación. Un control
+se propaga a todos los marcos que lo exigen.
+**Resolver las decisiones** (no dejarlas abiertas), citando el artículo:
+- **DPO** (Art. 50): obligatorio solo para organismos públicos o datos sensibles a gran escala; si no,
+  basta el responsable designado → dar el resultado.
+- **EIPD** (Art. 15 ter): aplicar el test de `templates/eipd.md`; si aplica un supuesto, es obligatoria.
+- **Base de licitud** por flujo y **mecanismo de transferencia** (cláusulas modelo).
 
-### Fase 3 — Generar documentación (por pack activo)
-Para cada pack activo, lee su `pack.md` y genera/rellena sus `templates/` con los hallazgos.
-Reemplaza todos los placeholders; lo que falte queda `[COMPLETAR: ...]`.
+### Fase 3 — Generar TODA la documentación (rellenada)
+Por cada pack activo, leer su `pack.md` y generar **todos** sus `templates/`, **rellenados con las
+respuestas de Fase 0 y los hallazgos de Fase 1**. Para `ley-21719`: rat, política, consentimiento,
+canal-derechos, dpa, anexo-transferencias, plan-respuesta-brechas, registro-vulneraciones, y eipd (si el
+test la hace obligatoria). Para `ley-21595`: modelo-prevencion-delitos, código-etica, matriz-riesgos,
+acta-encargado-prevencion, reglamento-canal-denuncias. Reemplazar todos los placeholders; usar
+`[COMPLETAR: ...]` solo para lo realmente desconocido.
 
 ### Fase 4 — Escribir el estado versionado
-Escribe en `<repo>/.compliance/` según `references/output-model.md`:
-- `state.json` — controles + score por marco + timestamp + commit.
-- `docs/` — documentos generados.
-- `RESUMEN.md` — postura, top brechas por prioridad, plan, **diff vs la corrida anterior**, y una
-  sección **"El abogado es opcional"** (desde `references/cuando-acudir-a-abogado.md`): qué dejó resuelto
-  el founder solo y qué es lo único que requeriría abogado (representación si lo fiscalizan).
-- `INSTRUCTIVO.md` — runbooks por situación (derecho ARCO, brecha 72h, fiscalización, calendario de
-  revisión) desde `references/instructivo-situaciones.md`, para que el founder los consulte.
-Sugiere al usuario commitear `.compliance/` (git = audit trail y versionado).
+Escribir en `<repo>/.compliance/` según `references/output-model.md`: `state.json` (controles + score por
+marco), `docs/` (todo lo generado), `INSTRUCTIVO.md` (runbooks desde `references/instructivo-situaciones.md`)
+y `RESUMEN.md` (postura, brechas priorizadas, **diff vs la corrida anterior**, y qué quedó resuelto solo +
+el único insumo externo: supervisión anual del MPD). Sugerir commitear `.compliance/`.
 
 ### Fase 5 — Cierre
-Reporta la postura por marco y cierra con UN siguiente paso (no un menú). Recuerda que la
-revisión de un abogado y la parte organizacional (no-código) siguen siendo del usuario.
+Reportar la postura por marco. Si hay remediaciones de código (opt-in, endpoints ARCO, MFA, audit log),
+ofrecer **implementarlas** (esta skill corre en Claude Code). Cerrar con UN siguiente paso.
 
 ## Reglas
-- **Fuente de verdad = `sources/` (textos oficiales).** Antes de afirmar algo legal, búscalo ahí;
-  cita ley + artículo + archivo. Si no se verifica contra el corpus, marca `[verificar contra fuente
-  oficial]`. Nunca uses una fuente secundaria (blog) como base de una afirmación normativa.
-- No inventes normativa ni datos de la empresa. `[COMPLETAR]` para lo desconocido, `❓` para
-  lo no verificable por código.
-- Distingue responsable vs encargado en cada flujo (eje de la 21.719).
-- Proporcionalidad: para una startup chica, el MPI/MPD puede ser documento simple bien hecho,
-  no burocracia.
-- No prometas "cumplimiento garantizado/certificado". Es un borrador técnico + diagnóstico.
-- Lo pesado (integraciones que recolectan evidencia sola, OPA en CI, monitoreo continuo) está
-  FUERA de alcance hasta que se decida productizar.
+- **Fuente de verdad = `sources/`.** Cita ley + artículo + archivo; `[verificar contra fuente oficial]` si
+  no se confirma. Nunca basar una afirmación normativa en un blog.
+- **Self-service:** rellenar todo desde el cuestionario; resolver las decisiones; no derivar al abogado lo
+  que la skill puede entregar. El abogado es opcional (ver `references/cuando-acudir-a-abogado.md`).
+- No inventar datos de la empresa ni normativa. `[COMPLETAR]` solo para lo desconocido; `❓` para lo no
+  verificable por código.
+- Distinguir responsable vs encargado en cada flujo.
+- No prometer "cumplimiento garantizado/certificado". El único insumo no self-service es la **supervisión
+  externa anual del MPD (21.595)** y la representación si hay fiscalización.
+
+## Recursos
+- `references/controls.md` — catálogo de controles + crosswalk.
+- `references/output-model.md` — formato del estado `.compliance/`.
+- `references/mapa-articulos-21719.md` — artículos verificados contra el texto oficial.
+- `references/cuando-acudir-a-abogado.md` — por qué el abogado es opcional.
+- `references/instructivo-situaciones.md` — runbooks (ARCO, brecha, fiscalización, calendario).
+- `packs/ley-21719/`, `packs/ley-21595/` — obligaciones + plantillas por marco.
+- `sources/` — textos legales oficiales (ley 21.719 PDF/txt, cláusulas modelo, XML) + `FUENTES.md`.

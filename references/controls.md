@@ -25,6 +25,11 @@ que hace genérico al motor: para agregar un marco nuevo, se le suman columnas a
 | `data-minimizacion` | Minimización y retención | Sí | — | GDPR Art.5 | código |
 | `data-dpa` | Contratos con encargados (DPA) | Sí | control de terceros | GDPR Art.28 | docs + usuario |
 | `data-transfer` | Transferencias internacionales con mecanismo | Sí | — | GDPR Cap.V | código (.env/proveedores) |
+| `data-consent-text` | Texto de consentimiento opt-in + revocación | Sí (Art. 12/16) | — | GDPR Art.7 | docs + código |
+| `data-rights-channel` | Canal/formulario para ejercer derechos | Sí (Art. 14 ter) | — | GDPR Art.12 | docs + código |
+| `data-eipd` | Evaluación de Impacto (alto riesgo) | Sí (Art. 15 ter) | — | GDPR Art.35 | docs + usuario |
+| `data-privacy-by-design` | Privacidad desde el diseño y por defecto | Sí (Art. 14 quáter) | — | ISO A.8.x / GDPR Art.25 | código |
+| `data-pseudonym` | Seudonimización de datos | Sí (Art. 14 quinquies) | — | GDPR Art.32 | código |
 | `sec-tls` | Cifrado en tránsito (TLS/HTTPS) | Sí | control interno TI | ISO A.8.24 / SOC2 CC6 | código/infra |
 | `sec-rest` | Cifrado en reposo (datos sensibles/credenciales) | Sí | — | ISO A.8.24 / SOC2 CC6 | código/infra |
 | `sec-passwords` | Hashing fuerte de contraseñas (bcrypt/argon2) | Sí | — | ISO A.8.5 | código |
@@ -33,7 +38,7 @@ que hace genérico al motor: para agregar un marco nuevo, se le suman columnas a
 | `sec-tenant` | Segregación por tenant/cliente | Sí | — | SOC2 CC6 | código (`organizationId`) |
 | `sec-secrets` | Secretos fuera del código | Sí | control interno | ISO A.8.24 | código (.env/secret mgr) |
 | `sec-backups` | Backups y borrado/retención | Sí | — | ISO A.8.13 | infra/usuario |
-| `inc-brechas` | Gestión de incidentes + notificación 72h | Sí (Agencia 72h) | — | GDPR Art.33 / SOC2 CC7 | docs + usuario |
+| `inc-brechas` | Gestión de incidentes + notificación de brechas | Sí (sin dilaciones indebidas, Art. 14 sexies) | — | GDPR Art.33 / SOC2 CC7 | docs + usuario |
 | `ctrl-interno` | Control interno: segregación de funciones / autorizaciones | — | Sí | ISO A.5.x / SOC2 CC | usuario + código |
 
 ## Cómo usarlo
