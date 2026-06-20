@@ -10,11 +10,10 @@
     background:#0b0b0d;
     color:#fff; width:1280px; height:640px; position:relative; overflow:hidden;
   }
-  /* franja inferior bandera de Chile */
-  .flag{ position:absolute; left:0; right:0; bottom:0; height:14px; display:flex; }
-  .flag .blue{ width:30%; background:#0033a0; }
-  .flag .white{ width:35%; background:#fff; }
-  .flag .red{ width:35%; background:#da291c; }
+  /* franja inferior: campo de la bandera de Chile (blanco arriba, rojo abajo) */
+  .flag{ position:absolute; left:0; right:0; bottom:0; height:18px; display:flex; flex-direction:column; }
+  .flag .white{ height:8px; background:#fff; }
+  .flag .red{ height:10px; background:#da291c; }
   /* glow limon */
   .glow{ position:absolute; width:680px; height:680px; right:-160px; top:-220px;
     background:radial-gradient(circle, rgba(245,209,66,.18), transparent 60%); }
@@ -53,6 +52,6 @@
     </div>
   </div>
   <div class="brand">Hecho con 🍋 por <b>Lelemon Studio</b></div>
-  <div class="flag"><div class="blue"></div><div class="white"></div><div class="red"></div></div>
+  <div class="flag"><div class="white"></div><div class="red"></div></div>
 </body>
 </html>
