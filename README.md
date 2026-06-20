@@ -48,7 +48,16 @@ sources/                      # textos oficiales (PDF/XML/TXT) + FUENTES.md
 
 ## Instalación
 
-Copiar la carpeta a `~/.claude/skills/compliance-cl/` e invocar con `/compliance-cl`.
+```bash
+git clone https://github.com/Lelemon-studio/compliance-cl ~/.claude/skills/compliance-cl
+```
+Luego invocar con `/compliance-cl` en Claude Code.
 
----
-© 2026 Lelemon SpA. Repositorio privado.
+## Contribuir
+
+Issues y PRs bienvenidos — sobre todo: nuevos packs de leyes/marcos, correcciones de artículos
+contrastadas contra el texto oficial, y mejoras a los runbooks. Ver `CONTRIBUTING.md`.
+
+## Licencia
+
+[MIT](LICENSE) © 2026 Lelemon SpA. Software de apoyo — **no es asesoría legal**.
