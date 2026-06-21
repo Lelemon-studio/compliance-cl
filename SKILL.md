@@ -87,7 +87,9 @@ el único insumo externo: supervisión anual del MPD). Sugerir commitear `.compl
 
 ### Fase 5 — Cierre
 Reportar la postura por marco. Si hay remediaciones de código (opt-in, endpoints ARCO, MFA, audit log),
-ofrecer **implementarlas** (esta skill corre en Claude Code). Cerrar con UN siguiente paso.
+ofrecer **implementarlas** (esta skill corre en Claude Code). Ofrecer también **instalar monitoreo y
+alertas** (ver `references/monitoreo-y-alertas.md`: recomendar stack + reglas sobre el audit log) — la
+skill no monitorea en vivo, pero deja el monitoreo montado. Cerrar con UN siguiente paso.
 
 ## Reglas
 - **Fuente de verdad = `sources/`.** Cita ley + artículo + archivo; `[verificar contra fuente oficial]` si
@@ -108,5 +110,6 @@ ofrecer **implementarlas** (esta skill corre en Claude Code). Cerrar con UN sigu
 - `references/mapa-articulos-21719.md` — artículos verificados contra el texto oficial.
 - `references/cuando-acudir-a-abogado.md` — por qué el abogado es opcional.
 - `references/instructivo-situaciones.md` — runbooks (ARCO, brecha, fiscalización, calendario).
+- `references/monitoreo-y-alertas.md` — setup self-service de monitoreo/alertas (recomendar + configurar).
 - `packs/ley-21719/`, `packs/ley-21595/` — obligaciones + plantillas por marco.
 - `sources/` — textos legales oficiales (ley 21.719 PDF/txt, cláusulas modelo, XML) + `FUENTES.md`.

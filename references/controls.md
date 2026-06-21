@@ -40,6 +40,7 @@ que hace genérico al motor: para agregar un marco nuevo, se le suman columnas a
 | `sec-backups` | Backups y borrado/retención | Sí | — | ISO A.8.13 | infra/usuario |
 | `inc-brechas` | Gestión de incidentes + notificación de brechas | Sí (sin dilaciones indebidas, Art. 14 sexies) | — | GDPR Art.33 / SOC2 CC7 | docs + usuario |
 | `ctrl-interno` | Control interno: segregación de funciones / autorizaciones | — | Sí | ISO A.5.x / SOC2 CC | usuario + código |
+| `sec-monitoring` | Monitoreo y alertas (audit log, secretos, errores) | detección de brechas | detección delitos informáticos | SOC2 CC7 | infra + usuario |
 
 ## Cómo usarlo
 1. En Fase 1, junta evidencia para cada `id` que tengan los packs activos.
