@@ -85,11 +85,12 @@ marco), `docs/` (todo lo generado), `INSTRUCTIVO.md` (runbooks desde `references
 y `RESUMEN.md` (postura, brechas priorizadas, **diff vs la corrida anterior**, y qué quedó resuelto solo +
 el único insumo externo: supervisión anual del MPD). Sugerir commitear `.compliance/`.
 
-### Fase 5 — Cierre
-Reportar la postura por marco. Si hay remediaciones de código (opt-in, endpoints ARCO, MFA, audit log),
-ofrecer **implementarlas** (esta skill corre en Claude Code). Ofrecer también **instalar monitoreo y
-alertas** (ver `references/monitoreo-y-alertas.md`: recomendar stack + reglas sobre el audit log) — la
-skill no monitorea en vivo, pero deja el monitoreo montado. Cerrar con UN siguiente paso.
+### Fase 5 — Cierre y construcción
+Reportar la postura por marco. Para cada hueco con remediación de código, **ofrecer construirlo** (esta
+skill corre en Claude Code) siguiendo las **recetas de `references/build/`** (MFA, cifrado en reposo,
+audit log + actor/IP, endpoints ARCO, consentimiento, retención): en una rama, con tests y los gates del
+repo. Ofrecer también **montar el monitoreo** (`references/build/monitoreo.md`: secret scanning + HIBP +
+alertas + watcher); la skill no vigila en vivo, pero deja el monitoreo instalado. Cerrar con UN siguiente paso.
 
 ## Reglas
 - **Fuente de verdad = `sources/`.** Cita ley + artículo + archivo; `[verificar contra fuente oficial]` si
@@ -110,6 +111,8 @@ skill no monitorea en vivo, pero deja el monitoreo montado. Cerrar con UN siguie
 - `references/mapa-articulos-21719.md` — artículos verificados contra el texto oficial.
 - `references/cuando-acudir-a-abogado.md` — por qué el abogado es opcional.
 - `references/instructivo-situaciones.md` — runbooks (ARCO, brecha, fiscalización, calendario).
-- `references/monitoreo-y-alertas.md` — setup self-service de monitoreo/alertas (recomendar + configurar).
+- `references/build/` — **recetas de construcción** (cómo implementar cada remediación: MFA, cifrado,
+  audit log + actor/IP, ARCO, consentimiento, retención, monitoreo) con librerías verificadas. Ver
+  `references/build/index.md`.
 - `packs/ley-21719/`, `packs/ley-21595/` — obligaciones + plantillas por marco.
 - `sources/` — textos legales oficiales (ley 21.719 PDF/txt, cláusulas modelo, XML) + `FUENTES.md`.

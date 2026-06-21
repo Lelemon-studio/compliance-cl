@@ -42,6 +42,9 @@ Corres `/compliance-cl` sobre tu repo y:
 5. Guarda el estado en `.compliance/` y lo versiona, así ves qué mejora o qué se rompe entre corridas.
 6. Te explica cada decisión con su artículo y trae guías para cuando pase algo: un derecho ARCO, una
    brecha, una fiscalización.
+7. **Construye las remediaciones**: como corre en Claude Code, puede implementar los arreglos (MFA,
+   cifrado en reposo, audit log, endpoints ARCO, retención) y **montar el monitoreo** (secret scanning,
+   HIBP, alertas), siguiendo recetas con librerías verificadas. Ver `references/build/`.
 
 ## Marcos cubiertos
 
