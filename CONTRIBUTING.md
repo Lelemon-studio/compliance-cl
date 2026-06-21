@@ -18,6 +18,15 @@ oficial]`. No se aceptan afirmaciones normativas basadas solo en blogs o resúme
 - **Mejorar runbooks/plantillas:** mantén el disclaimer "no es asesoría legal" y marca `[ABOGADO]`
   donde se requiera intervención profesional.
 
+## Flujo de trabajo (git)
+
+1. **Forkea** el repo (o crea una rama, si tienes acceso de escritura).
+2. Crea una **rama** descriptiva: `tipo/descripcion-corta` (ej. `fix/art-14-sexies`, `feat/pack-ley-nueva`).
+3. Usa [Conventional Commits](https://www.conventionalcommits.org) en español: `tipo(scope): descripción`
+   (`fix`, `feat`, `docs`, `refactor`, `chore`…).
+4. Abre un **Pull Request contra `main`** describiendo el cambio y citando las fuentes que tocaste.
+5. Espera **al menos una revisión** antes de mergear. **No se commitea directo a `main`.**
+
 ## Estilo
 
 - Contenido en español chileno (el dominio es derecho chileno).
