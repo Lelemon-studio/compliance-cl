@@ -90,7 +90,8 @@ Reportar la postura por marco. Para cada hueco con remediación de código, **of
 skill corre en Claude Code) siguiendo las **recetas de `references/build/`** (MFA, cifrado en reposo,
 audit log + actor/IP, endpoints ARCO, consentimiento, retención): en una rama, con tests y los gates del
 repo. Ofrecer también **montar el monitoreo** (`references/build/monitoreo.md`: secret scanning + HIBP +
-alertas + watcher); la skill no vigila en vivo, pero deja el monitoreo instalado. Cerrar con UN siguiente paso.
+alertas + watcher); la skill no vigila en vivo, pero deja el monitoreo instalado. Sugerir **agendar
+re-corridas periódicas** (`references/revisiones-periodicas.md`) para detectar drift. Cerrar con UN siguiente paso.
 
 ## Reglas
 - **Fuente de verdad = `sources/`.** Cita ley + artículo + archivo; `[verificar contra fuente oficial]` si
@@ -114,5 +115,7 @@ alertas + watcher); la skill no vigila en vivo, pero deja el monitoreo instalado
 - `references/build/` — **recetas de construcción** (cómo implementar cada remediación: MFA, cifrado,
   audit log + actor/IP, ARCO, consentimiento, retención, monitoreo) con librerías verificadas. Ver
   `references/build/index.md`.
+- `references/revisiones-periodicas.md` — automatizar la re-corrida (`/loop`, cron headless `claude -p`,
+  `/schedule`) para detectar drift entre corridas.
 - `packs/ley-21719/`, `packs/ley-21595/` — obligaciones + plantillas por marco.
 - `sources/` — textos legales oficiales (ley 21.719 PDF/txt, cláusulas modelo, XML) + `FUENTES.md`.
