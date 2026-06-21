@@ -68,7 +68,7 @@ se propaga a todos los marcos que lo exigen.
 **Resolver las decisiones** (no dejarlas abiertas), citando el artículo:
 - **DPO** (Art. 50): obligatorio solo para organismos públicos o datos sensibles a gran escala; si no,
   basta el responsable designado → dar el resultado.
-- **EIPD** (Art. 15 ter): aplicar el test de `templates/eipd.md`; si aplica un supuesto, es obligatoria.
+- **EIPD** (Art. 15 ter): aplicar el test de `packs/ley-21719/templates/eipd.md`; si aplica un supuesto, es obligatoria.
 - **Base de licitud** por flujo y **mecanismo de transferencia** (cláusulas modelo).
 
 ### Fase 3 — Generar TODA la documentación (rellenada)
