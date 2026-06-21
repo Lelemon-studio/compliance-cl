@@ -97,8 +97,10 @@ ofrecer **implementarlas** (esta skill corre en Claude Code). Cerrar con UN sigu
 - No inventar datos de la empresa ni normativa. `[COMPLETAR]` solo para lo desconocido; `❓` para lo no
   verificable por código.
 - Distinguir responsable vs encargado en cada flujo.
-- No prometer "cumplimiento garantizado/certificado". El único insumo no self-service es la **supervisión
-  externa anual del MPD (21.595)** y la representación si hay fiscalización.
+- No prometer "cumplimiento garantizado/certificado". Insumos NO self-service: la **supervisión externa
+  anual del MPD (21.595)**, la representación si hay fiscalización, y el **monitoreo/detección de
+  filtraciones en tiempo real** (es un servicio aparte; la skill prepara el plan de respuesta y puede
+  configurar alertas sobre el audit log, pero no hace vigilancia 24/7).
 
 ## Recursos
 - `references/controls.md` — catálogo de controles + crosswalk.

@@ -30,7 +30,11 @@ criterio de la ley y te da el resultado**, no te deja la tarea.
 Si quieres que alguien revise y firme los documentos antes de publicarlos: es un "nice to have", no un
 requisito legal.
 
-## Lo que la skill NO hace
-Representarte en juicio ni darte una garantía legal personalizada. Por eso el disclaimer "no es asesoría
-legal": no porque necesites un abogado para cumplir, sino porque un software no asume tu responsabilidad
-legal. Tú quedas listo; la responsabilidad final es tuya.
+## Lo que la skill NO hace (sé transparente: dilo)
+- **Monitoreo / verificación en tiempo real de filtraciones** (DLP, detección de fugas, alertas 24/7): es
+  un servicio corriendo siempre, no una skill que se ejecuta on-demand. La skill prepara el **plan de
+  respuesta** y puede configurar **alertas sobre el audit log**, pero la vigilancia en vivo es otra
+  categoría (un producto de monitoreo). No prometer que la cubre.
+- **Representarte** en juicio ni darte una garantía legal personalizada. Por eso el disclaimer "no es
+  asesoría legal": no porque necesites un abogado para cumplir, sino porque un software no asume tu
+  responsabilidad legal. Tú quedas listo; la responsabilidad final es tuya.

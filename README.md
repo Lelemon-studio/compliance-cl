@@ -113,6 +113,16 @@ sources/                          # textos legales oficiales + FUENTES.md (repro
 Se agradecen issues y PRs, sobre todo packs nuevos, correcciones de artículos chequeadas contra el
 texto oficial, y mejoras a las guías. Lee [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
+## Qué no hace
+
+- **Monitoreo / detección de filtraciones en tiempo real** (DLP, alertas 24/7): es un servicio corriendo
+  siempre, no una skill on-demand. La skill prepara el plan de respuesta y puede configurar alertas sobre
+  el audit log, pero la vigilancia en vivo es otra categoría.
+- **Representarte** ante la Agencia o tribunales (eso es de un abogado) ni reemplazar la **supervisión
+  externa anual del MPD** (Ley 21.595, la hace un tercero).
+
+No reemplaza a un abogado: te deja listo para cumplir y te dice qué falta.
+
 ## Aviso
 
 Esto no es asesoría legal: un software no asume tu responsabilidad legal, la decisión final es tuya. Te
