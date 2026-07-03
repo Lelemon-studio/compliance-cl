@@ -65,3 +65,24 @@ Build a Python 3.9+ command-line collector under `collector/` that gathers read-
 ## Open questions
 
 None. Phase 1 decisions resolved all source-spec implementation questions.
+
+## Follow-up specification — Bash execution wrapper
+
+Add an executable Bash wrapper at `collector/run-collector.sh` that exposes the Python collector's run options without duplicating collection logic.
+
+### Scope
+
+- Long options: `--config`, `--out`, `--only`, `--skip`, `--dry-run`, `--offline-only`, `--encryption-key-file`, `--collector-bin`, `--help`, and `--version`.
+- Defaults: `--config ./collector.config.yaml` and `--out ./out`.
+- Repeatable `--only` and `--skip` values forwarded in original order.
+- Executable resolution: explicit binary, repository `.venv`, `PATH`, then local Python module fallback.
+- Clear errors for missing values, unknown options, absent configuration files, and unusable executables.
+- Exact propagation of the underlying collector exit status.
+
+### Non-goals
+
+- No dependency installation or virtual-environment creation.
+- No configuration mutation.
+- No reimplementation of Python CLI validation or collector behavior.
+
+- **AC-12:** The Bash wrapper safely forwards every supported option, documents its resolution/default behavior, preserves exit codes, and passes syntax, focused wrapper, and full regression validation.

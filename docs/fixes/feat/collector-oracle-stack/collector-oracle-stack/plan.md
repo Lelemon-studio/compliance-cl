@@ -103,3 +103,34 @@ Initial tracking commit: `ca30eba`
 - CLI dry-run and offline end-to-end smoke: passed.
 - Evidence bundle schema validation: passed.
 - Independent audit blockers remediated with exact-signature tests for Functions, Boot Volumes, Logging Analytics, and Notifications; final re-audit READY.
+
+## Follow-up — Bash execution wrapper
+
+Approved interface: add `collector/run-collector.sh` with `--config`, `--out`, repeatable `--only`/`--skip`, `--dry-run`, `--offline-only`, `--encryption-key-file`, `--collector-bin`, `--help`, and `--version`.
+
+Execution resolution order:
+
+1. Explicit `--collector-bin`.
+2. Repository `.venv/bin/collector`.
+3. `collector` available on `PATH`.
+4. `python3 -m oracle_collector` with local `collector/src` in `PYTHONPATH`.
+
+The wrapper will not install dependencies. It will validate option values and the configuration path, preserve all collector exit codes, avoid `eval`, and pass arguments as a Bash array.
+
+### Follow-up plan
+
+1. Add failing wrapper tests for help, defaults, forwarding, repeated filters, invalid/missing options, executable resolution, and exit-code preservation.
+2. Implement the Bash wrapper with strict mode and portable long-option parsing.
+3. Document wrapper examples in `collector/README.md`.
+4. Run `bash -n`, focused wrapper tests, and the full collector/repository test suite.
+5. Append final TDD, traceability, and validation results; commit and update PR #1.
+
+### Follow-up agent roster and ownership
+
+| Owner | Files/task | State |
+|---|---|---|
+| `/root/onprem_collectors` | `collector/run-collector.sh`, `collector/tests/test_bash_wrapper.py` | Planned reactivation after tracking update |
+| `/root/security_auditor` | Independent read-only shell safety and option-forwarding audit | Planned reactivation after implementation |
+| `/root` | README, SDD/TDD docs, integration, full validation | Active |
+
+Conflicts: none. No owner may edit another owner's files concurrently.

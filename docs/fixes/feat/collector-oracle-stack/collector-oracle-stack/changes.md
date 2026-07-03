@@ -31,3 +31,21 @@ The fix addresses the underlying gap by shipping runnable code, schemas, mocked 
 - `python -m compileall -q collector/src` and `git diff --check` → passed.
 - Independent audit blockers were converted into 12 RED regressions and fixed; focused post-fix suite: 24 passed.
 - Independent final re-audit → READY; no remaining blocker-level defects.
+
+## Follow-up — Bash execution wrapper
+
+### Root Cause Analysis
+
+Observed gap: the collector is runnable through its installed Python entry point, but operators do not have a repository-local shell entry point with discoverable long options. Existing README commands assume activation or installation of the console script, and no shell tests protect argument forwarding or exit-code behavior.
+
+### How It Was Fixed
+
+Pending implementation.
+
+### Summary
+
+Follow-up tracking opened for `collector/run-collector.sh`, focused tests, and README usage.
+
+### Validation
+
+Pending.

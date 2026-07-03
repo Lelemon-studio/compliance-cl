@@ -65,3 +65,17 @@ Result: expected RED during collection. Six test modules failed to import becaus
 - Draft 2020-12 metaschema checks and generated bundle validation → passed.
 - `python -m compileall -q collector/src` → passed.
 - `git diff --check` → passed.
+
+## Follow-up TDD — Bash execution wrapper
+
+### Red — planned
+
+Add tests before the wrapper exists for help output, default config/output forwarding, repeatable `--only` and `--skip`, boolean/encryption options, explicit binary resolution, malformed arguments, missing configuration, and underlying exit-code preservation.
+
+### Green
+
+Pending.
+
+### Refactor
+
+Pending.
