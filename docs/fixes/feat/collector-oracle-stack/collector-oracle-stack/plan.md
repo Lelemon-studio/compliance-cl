@@ -7,7 +7,7 @@ Implement `specs/collector-oracle-stack.spec.md` as a new Python 3.9+ project un
 Branch: `feat/collector-oracle-stack`  
 Base: `main`  
 Task: `collector-oracle-stack`  
-Tracking PR: pending
+Tracking PR: https://github.com/oracletechcl/compliance-cl/pull/1
 
 ## Approved decisions
 
@@ -90,4 +90,6 @@ Consolidate registry metadata, mappings, serialization, error handling, and fixt
 
 ## Pull request tracking
 
-The initial draft PR URL will be added here immediately after creation.
+Draft PR: https://github.com/oracletechcl/compliance-cl/pull/1
+
+Initial tracking commit: `ca30eba`
