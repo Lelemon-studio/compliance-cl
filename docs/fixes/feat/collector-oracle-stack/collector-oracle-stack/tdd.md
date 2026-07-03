@@ -74,6 +74,38 @@ Add tests before the wrapper exists for help output, default config/output forwa
 
 ### Green
 
+- RED command: `python3 -m pytest collector/tests/test_bash_wrapper.py -q`.
+- RED result: 22 failures because `collector/run-collector.sh` did not exist.
+- GREEN result: 30 focused wrapper tests passed on GNU Bash 3.2.57.
+- Implementation uses strict mode, Bash arrays, exact long-option parsing, repository-root virtualenv resolution, explicit executable validation, local Python fallback, and `exec` for exact status propagation.
+
+### Refactor
+
+- Corrected virtualenv discovery to `$SCRIPT_DIR/../.venv/bin/collector`.
+- Added adversarial literal-argument tests for spaces, glob characters, semicolons, and `$()`.
+- Added missing/next-option value tests, config/key validation, precedence tests, and exit-code cases `0`, `1`, `2`, and `23`.
+- Documented wrapper operation and stack-selection examples in `collector/README.md`.
+
+### Follow-up validation
+
+- `bash -n collector/run-collector.sh` → passed.
+- Executable mode → `-rwxr-xr-x`.
+- `python -m pytest collector/tests/test_bash_wrapper.py -q` → 30 passed.
+- `python -m pytest collector/tests -q` → 105 passed.
+- `python -m pytest -q` → 105 passed repository-wide.
+- Wrapper help, version, and offline dry-run → passed.
+- Wrapper-driven offline end-to-end output and JSON Schema validation → passed.
+- `git diff --check` → passed.
+- Independent AC-12 audit → READY; no remaining blocker.
+
+## Follow-up TDD — Canonical configuration profiles
+
+### Red — planned
+
+Add discovery and validation tests before the profile tree exists. Tests will require all approved filenames, parse each YAML through `load_config`, verify unique run names and intended source/service selection, and reject embedded secret keys or unsafe placeholder values.
+
+### Green
+
 Pending.
 
 ### Refactor

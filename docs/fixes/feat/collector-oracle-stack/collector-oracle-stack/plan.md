@@ -129,8 +129,47 @@ The wrapper will not install dependencies. It will validate option values and th
 
 | Owner | Files/task | State |
 |---|---|---|
-| `/root/onprem_collectors` | `collector/run-collector.sh`, `collector/tests/test_bash_wrapper.py` | Planned reactivation after tracking update |
-| `/root/security_auditor` | Independent read-only shell safety and option-forwarding audit | Planned reactivation after implementation |
-| `/root` | README, SDD/TDD docs, integration, full validation | Active |
+| `/root/onprem_collectors` | `collector/run-collector.sh`, `collector/tests/test_bash_wrapper.py` | Complete; 30 focused tests passed |
+| `/root/security_auditor` | Independent read-only shell safety and option-forwarding audit | Complete; READY |
+| `/root` | README, SDD/TDD docs, integration, full validation | Complete |
 
 Conflicts: none. No owner may edit another owner's files concurrently.
+
+### Follow-up result
+
+- Bash 3.2 syntax and executable mode: passed.
+- Focused wrapper suite: 30 passed.
+- Full collector and repository-wide suites: 105 passed.
+- Wrapper-driven dry-run and offline end-to-end bundle: passed.
+- Generated bundle schema validation: passed.
+- Independent AC-12 shell-safety audit: READY.
+
+## Follow-up — Canonical configuration profile matrix
+
+Create a standalone, secret-free profile set under `collector/configs/` for every supported on-premises stack family, OCI layer, and a hybrid deployment. Profiles are composable examples, not an attempt to enumerate every environment permutation.
+
+### Approved profile tree
+
+- `onprem/database/{dbsat-only,direct-sql-only,database-full}.yaml`
+- `onprem/middleware/{weblogic,ohs,oam,oaa,webgate,oag,avdf,middleware-full}.yaml`
+- `oci/{full-stack,identity-governance,database-data-safe,compute-storage-oke,network-perimeter,observability-dr,object-storage}.yaml`
+- `hybrid/onprem-oci-full.yaml`
+- `configs/README.md` with copy/rename guidance for development, QA, and production environments.
+
+### Config-matrix plan
+
+1. Add failing tests that discover every expected profile, load each through `load_config`, assert a unique/safe `run.name`, verify intended enabled sections/services, and scan for embedded secret keys.
+2. Create all standalone YAML profiles using replacement placeholders only for identifiers and paths.
+3. Document profile selection, environment cloning, wrapper commands, and the current middleware filtering boundary.
+4. Run every profile through parser validation and safe offline/dry-run checks where applicable.
+5. Run the full collector and repository regression suites; update AC-13 and PR #1.
+
+### Config-matrix roster and ownership
+
+| Owner | Files/task | State |
+|---|---|---|
+| `/root/onprem_collectors` | `collector/configs/onprem/**`, `collector/tests/test_config_profiles.py` | Planned reactivation after tracking commit |
+| `/root/security_auditor` | Independent read-only review for secret material, unsafe defaults, and misleading scopes | Planned reactivation after profiles exist |
+| `/root` | `collector/configs/oci/**`, `collector/configs/hybrid/**`, config index, main README, integration | Active |
+
+Conflicts: none.

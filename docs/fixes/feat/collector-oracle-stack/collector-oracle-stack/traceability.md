@@ -13,7 +13,8 @@
 | AC-09 | `redaction.py`, `encryption.py` | Secret corpus, OCID, URI/DSN, log, and AES-GCM tests | Passed |
 | AC-10 | Both JSON schemas | Metaschema checks and generated bundle validation | Passed |
 | AC-11 | `collector/README.md`, example config | Documentation review and CLI smoke | Passed |
-| AC-12 | `collector/run-collector.sh`, README wrapper section | Bash syntax, forwarding/error/exit tests, full regression | Planned follow-up |
+| AC-12 | `collector/run-collector.sh`, README wrapper section | Bash syntax, 30 focused wrapper tests, 105-test regression, wrapper smoke | Passed |
+| AC-13 | `collector/configs/**`, config index, main README | Profile discovery/parser/scope/secret tests, dry-run matrix, full regression | Planned follow-up |
 
 ## Final validation matrix
 
@@ -27,3 +28,4 @@ Validation environment: isolated temporary Python 3.14 environment for core test
 - OCI parent-specific signature tests: Functions, Boot Volumes, Logging Analytics, and Notifications passed.
 - Coverage honesty: a service with no successful operation is skipped and never marked scanned.
 - Independent re-audit: READY; AC-03, AC-04, AC-06, and prior security findings passed.
+- Wrapper follow-up audit: READY; argument safety, resolution, validation, and exit propagation passed.

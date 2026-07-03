@@ -86,3 +86,16 @@ Add an executable Bash wrapper at `collector/run-collector.sh` that exposes the 
 - No reimplementation of Python CLI validation or collector behavior.
 
 - **AC-12:** The Bash wrapper safely forwards every supported option, documents its resolution/default behavior, preserves exit codes, and passes syntax, focused wrapper, and full regression validation.
+
+## Follow-up specification — Canonical configuration profiles
+
+Create standalone YAML profiles under `collector/configs/` for supported Oracle stack slices:
+
+- On-premises database: DBSAT only, direct SQL only, and combined database collection.
+- On-premises middleware: WebLogic, OHS, OAM, OAA, WebGate, OAG, AVDF, and combined middleware.
+- OCI: full stack plus identity/governance, database/Data Safe, compute/storage/OKE, network/perimeter, observability/DR, and Object Storage slices.
+- Hybrid: combined on-premises database, middleware, and OCI.
+
+Every profile must load through the production configuration parser, remain free of embedded secrets, use a unique safe `run.name`, enable only its intended stack sections, and contain explicit replacement placeholders for tenant-specific identifiers and filesystem paths. Profiles are copied and customized per environment; no YAML include/merge mechanism is introduced.
+
+- **AC-13:** All canonical profiles exist, parse successfully, contain no embedded secret material, accurately select their documented stack slice, and are indexed with wrapper commands and environment-copy guidance.
