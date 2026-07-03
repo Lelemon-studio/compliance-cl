@@ -48,18 +48,18 @@ Tracking PR: https://github.com/oracletechcl/compliance-cl/pull/1
 
 | Owner | Task | State |
 |---|---|---|
-| Root integration owner | Core models, CLI, orchestration, OCI, packaging, schemas, integration | Planned |
-| On-prem implementation agent | DBSAT, direct SQL, middleware, fixtures, focused tests | Planned; spawn after tracking PR |
-| TDD/security auditor | Independent contract/security review and verification | Planned; spawn after tracking PR |
+| `/root` | Core models, CLI, orchestration, OCI, packaging, schemas, integration | Complete |
+| `/root/onprem_collectors` | DBSAT, direct SQL, middleware, fixtures, focused tests | Complete; 32 focused tests passed |
+| `/root/security_auditor` | Independent contract/security tests and verification | Complete; re-audit READY |
 
 ## File ownership
 
 | Files/globs | Owner |
 |---|---|
-| `collector/src/oracle_collector/collectors/{dbsat,direct_sql,middleware}.py` | On-prem implementation agent |
-| `collector/tests/test_{dbsat,direct_sql,middleware}.py`, matching fixtures | On-prem implementation agent |
-| Independent review; auditor-authored tests in separately agreed files | TDD/security auditor |
-| All remaining `collector/**` and `docs/fixes/**` | Root integration owner |
+| `collector/src/oracle_collector/collectors/{dbsat,direct_sql,middleware}.py` | `/root/onprem_collectors` |
+| `collector/tests/test_{dbsat,direct_sql,middleware}.py`, `collector/tests/fixtures/onprem/**` | `/root/onprem_collectors` |
+| `collector/tests/test_security_contract.py` | `/root/security_auditor` |
+| All remaining `collector/**` and `docs/fixes/**` | `/root` |
 
 No concurrent overlap is permitted. Conflicts: none.
 
@@ -93,3 +93,13 @@ Consolidate registry metadata, mappings, serialization, error handling, and fixt
 Draft PR: https://github.com/oracletechcl/compliance-cl/pull/1
 
 Initial tracking commit: `ca30eba`
+
+## Implementation status
+
+- Core, on-prem, OCI, security, schema, packaging, and documentation work: complete.
+- Full collector tests: 75 passed.
+- Repository-wide pytest discovery: 75 passed.
+- Wheel and sdist: built successfully with contract assets included.
+- CLI dry-run and offline end-to-end smoke: passed.
+- Evidence bundle schema validation: passed.
+- Independent audit blockers remediated with exact-signature tests for Functions, Boot Volumes, Logging Analytics, and Notifications; final re-audit READY.

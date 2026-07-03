@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "dbsat_version": "4.0",
+    "database": "coreprod"
+  },
+  "findings": [
+    {
+      "id": "TDE-001",
+      "category": "Encryption",
+      "title": "TDE wallet and encrypted tablespaces",
+      "status": "Pass",
+      "severity": "High",
+      "details": {
+        "wallet_status": "OPEN",
+        "encrypted_tablespaces": 3,
+        "algorithm": "AES256"
+      }
+    },
+    {
+      "id": "AUD-004",
+      "category": "Auditing",
+      "title": "Unified audit policy",
+      "status": "Fail",
+      "severity": "Medium",
+      "details": {
+        "policy_count": 0
+      }
+    }
+  ]
+}

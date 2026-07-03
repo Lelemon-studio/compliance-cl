@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://oracletechcl.github.io/compliance-cl/evidence-bundle.schema.json",
+  "title": "Oracle compliance evidence bundle",
+  "type": "object",
+  "required": ["schema", "generated_at", "collector_version", "run", "environment", "inventory", "evidence", "remediation_catalog", "resilience_tier_observed", "coverage", "errors"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": 1},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "collector_version": {"type": "string", "minLength": 1},
+    "run": {
+      "type": "object",
+      "required": ["name", "redaction"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "redaction": {"enum": ["strict", "minimal"]}
+      }
+    },
+    "environment": {"type": "object"},
+    "inventory": {"type": "array", "items": {"type": "object"}},
+    "evidence": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/evidence"}
+    },
+    "remediation_catalog": {
+      "type": "object",
+      "required": ["source", "onprem", "cloud", "zero_trust"],
+      "properties": {
+        "source": {"type": "string"},
+        "onprem": {"type": "array"},
+        "cloud": {"type": "array"},
+        "zero_trust": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "resilience_tier_observed": {"type": "object"},
+    "coverage": {
+      "type": "object",
+      "required": ["services_scanned", "services_skipped", "warnings"],
+      "properties": {
+        "services_scanned": {"type": "array", "items": {"type": "string"}},
+        "services_skipped": {"type": "array", "items": {"type": "object"}},
+        "warnings": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "errors": {"type": "array", "items": {"type": "object"}}
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "required": ["id", "layer", "resource", "attribute", "value", "signal", "control_ids", "law_refs", "remediation_candidates", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "pattern": "^ev-"},
+        "layer": {"enum": ["database", "middleware", "compute", "storage", "network", "iam", "monitoring", "oke", "waf"]},
+        "resource": {"type": "string"},
+        "attribute": {"type": "string"},
+        "value": {},
+        "signal": {"enum": ["present", "absent", "unknown", "misconfigured"]},
+        "control_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "law_refs": {"type": "array", "items": {"type": "string"}},
+        "remediation_candidates": {"type": "array", "items": {"type": "object"}},
+        "source": {
+          "type": "object",
+          "required": ["collector"],
+          "properties": {
+            "collector": {"type": "string"},
+            "ref": {"type": "string"}
+          }
+        },
+        "confidence": {"enum": ["low", "medium", "high"]}
+      }
+    }
+  }
+}
+

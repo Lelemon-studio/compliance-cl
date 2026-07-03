@@ -1,0 +1,30 @@
+{
+  "source": "specs/ldp.pdf (Art. 14 / 14 quinquies)",
+  "onprem": [
+    {"requirement": "Cifrado", "products": ["Oracle Advanced Security (TDE)", "Data Masking & Subsetting"]},
+    {"requirement": "Seudonimización", "products": ["Oracle Data Masking & Subsetting", "Data Redaction"]},
+    {"requirement": "Confidencialidad", "products": ["Database Vault", "Oracle Label Security", "OAA + WebGate + OAM (FIDO)"]},
+    {"requirement": "Disponibilidad y resiliencia", "products": ["RAC", "Data Guard", "GoldenGate", "RMAN", "ZDLRA"]},
+    {"requirement": "Restauración", "products": ["RMAN", "ZDLRA", "Data Guard"]},
+    {"requirement": "Auditorías y evaluaciones", "products": ["Database Vault", "Audit Vault & Database Firewall", "DBSAT"]}
+  ],
+  "cloud": [
+    {"requirement": "Cifrado", "products": ["Advanced Security", "Data Masking & Subsetting", "OCI Data Safe", "OCI Vault"]},
+    {"requirement": "Seudonimización", "products": ["OCI Data Safe Masking", "Data Redaction"]},
+    {"requirement": "Confidencialidad", "products": ["Database Vault", "OCI IAM", "OCI API Gateway", "OCI WAF"]},
+    {"requirement": "Disponibilidad y resiliencia", "products": ["OCI Full Stack Disaster Recovery", "Autonomous Data Guard", "Object Storage replication", "GoldenGate"]},
+    {"requirement": "Restauración", "products": ["OCI Database Backup", "Autonomous Recovery", "Object Storage retention"]},
+    {"requirement": "Auditorías y evaluaciones", "products": ["OCI Audit", "OCI Data Safe", "Audit Vault & Database Firewall", "Logging Analytics", "Cloud Guard"]}
+  ],
+  "zero_trust": [
+    "IAM & Governance",
+    "Network Firewall",
+    "WAF",
+    "Threat Intelligence",
+    "Cloud Guard",
+    "Logging Analytics",
+    "Key Vault",
+    "Immutable Backup"
+  ]
+}
+

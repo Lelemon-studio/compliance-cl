@@ -1,0 +1,11 @@
+{
+  "name": "payments-domain",
+  "ssl": {
+    "enabled": true,
+    "minimum_protocol": "TLSv1.2",
+    "ciphers": ["TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"]
+  },
+  "listeners": ["AdminServer:7002"],
+  "node_manager": {"secure_listener": true},
+  "password_policy": {"minimum_length": 14}
+}

@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oracle-compliance-collector"
+version = "0.1.0"
+description = "Read-only Oracle on-premises and OCI security evidence collector"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{ name = "oracletechcl" }]
+dependencies = [
+  "PyYAML>=6.0",
+  "jsonschema>=4.18",
+  "cryptography>=41",
+]
+
+[project.optional-dependencies]
+oci = ["oci>=2.130"]
+oracle = ["oracledb>=2.0"]
+dev = ["build>=1.2", "pytest>=8.0"]
+all = ["oci>=2.130", "oracledb>=2.0", "build>=1.2", "pytest>=8.0"]
+
+[project.scripts]
+collector = "oracle_collector.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.data-files]
+"oracle_collector_data" = [
+  "remediation_catalog.json",
+  "schema/evidence-bundle.schema.json",
+  "schema/assessment.schema.json",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

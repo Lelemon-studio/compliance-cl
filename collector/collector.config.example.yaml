@@ -1,0 +1,44 @@
+run:
+  name: acme-prod-2026-07
+  redaction: strict
+  offline_only: false
+  parallelism: 8
+
+oci:
+  enabled: true
+  auth: instance_principal
+  profile: DEFAULT
+  config_path: ~/.oci/config
+  tenancy_ocid: ocid1.tenancy.oc1..replace-me
+  regions: [sa-santiago-1]
+  compartments: all
+  services: all
+
+onprem_db:
+  enabled: true
+  dbsat:
+    binary: /opt/dbsat/dbsat
+    targets:
+      - alias: coreprod
+        connect: coreprod_reader@//db1:1521/PDB1
+        wallet_location: /secure/wallets/coreprod
+    report_formats: [json]
+    exclude_sections: []
+  direct_sql:
+    enabled: true
+    role: readonly_monitor
+    targets:
+      - alias: coreprod
+        dsn: db1:1521/PDB1
+        user: coreprod_reader
+        wallet: /secure/wallets/coreprod
+
+onprem_middleware:
+  enabled: true
+  targets:
+    - type: weblogic
+      config_path: /secure/exports/weblogic.json
+      read_config_only: true
+    - type: ohs
+      config_path: /secure/exports/ohs.json
+      read_config_only: true

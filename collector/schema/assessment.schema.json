@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://oracletechcl.github.io/compliance-cl/assessment.schema.json",
+  "title": "Downstream GPT assessment contract",
+  "type": "object",
+  "required": ["schema", "generated_at", "input_bundle", "disclaimer", "controls", "frameworks", "assessments", "plan"],
+  "properties": {
+    "schema": {"const": 1},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "input_bundle": {"type": "string"},
+    "disclaimer": {"type": "string", "minLength": 1},
+    "controls": {"type": "object"},
+    "frameworks": {"type": "object"},
+    "assessments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "evidence_id", "control_ids", "finding", "status", "criticality", "effort", "cost", "priority_score", "priority", "recommended_action"],
+        "properties": {
+          "id": {"type": "string"},
+          "evidence_id": {"type": "string", "pattern": "^ev-"},
+          "control_ids": {"type": "array", "items": {"type": "string"}},
+          "finding": {"type": "string"},
+          "status": {"enum": ["pass", "partial", "fail", "unknown"]},
+          "law_ref": {"type": "object"},
+          "criticality": {"$ref": "#/$defs/scoredDimension"},
+          "effort": {"$ref": "#/$defs/scoredDimension"},
+          "cost": {"$ref": "#/$defs/scoredDimension"},
+          "priority_score": {"type": "number"},
+          "priority": {"enum": ["P0", "P1", "P2", "P3"]},
+          "recommended_action": {"type": "object"}
+        }
+      }
+    },
+    "plan": {"type": "object"},
+    "coverage_notes": {"type": "string"}
+  },
+  "$defs": {
+    "scoredDimension": {
+      "type": "object",
+      "required": ["level", "label", "rationale"],
+      "properties": {
+        "level": {"type": "integer", "minimum": 1, "maximum": 5},
+        "label": {"type": "string"},
+        "rationale": {"type": "string"}
+      }
+    }
+  }
+}
+
