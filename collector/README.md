@@ -418,3 +418,33 @@ python -m build collector
 ```
 
 Los tests usan fixtures y dobles del SDK; no necesitan una base Oracle ni una tenancy OCI real.
+
+## Paquete para clientes
+
+Generar un archivo conectado, que descarga dependencias sólo durante el primer uso:
+
+```bash
+./collector/build-customer-package.sh \
+  --mode online --extras all \
+  --output dist/oracle-collector-customer.tar.gz
+```
+
+Para redes aisladas, construir en el mismo sistema operativo, arquitectura y versión de Python que usará el cliente:
+
+```bash
+./collector/build-customer-package.sh \
+  --mode offline --extras all \
+  --output dist/oracle-collector-customer-offline.tar.gz
+```
+
+El cliente descomprime el archivo y ejecuta:
+
+```bash
+./collector.sh verify
+./collector.sh list-profiles
+./collector.sh init --profile oci/database-data-safe --environment production
+./collector.sh doctor --config customer-config/production.yaml
+./collector.sh run --config customer-config/production.yaml --out out
+```
+
+El paquete entrega las 19 plantillas inmutables bajo `profiles/{onprem,oci,hybrid}` y crea configs editables, con permisos `0600`, bajo `customer-config/`. Los configs del cliente quedan separados del ejecutable y no se sobrescriben durante una actualización.

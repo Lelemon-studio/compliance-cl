@@ -99,3 +99,9 @@ Create standalone YAML profiles under `collector/configs/` for supported Oracle 
 Every profile must load through the production configuration parser, remain free of embedded secrets, use a unique safe `run.name`, enable only its intended stack sections, and contain explicit replacement placeholders for tenant-specific identifiers and filesystem paths. Profiles are copied and customized per environment; no YAML include/merge mechanism is introduced.
 
 - **AC-13:** All canonical profiles exist, parse successfully, contain no embedded secret material, accurately select their documented stack slice, and are indexed with wrapper commands and environment-copy guidance.
+
+## Follow-up specification — Customer delivery bundle
+
+Build a versioned `.tar.gz` for online or offline customer delivery. It includes the application wheel, a self-bootstrapping launcher, checksums, quick-start documentation, and all 19 immutable profiles. `init` copies a selected profile into a separate `customer-config/` area with mode `0600`; `doctor` rejects unresolved placeholders before runtime installation or collection. Offline installation must use only the bundled wheelhouse.
+
+- **AC-14:** The customer archive is path-safe, checksum-verifiable, profile-complete, prevents accidental config overwrite/path traversal, isolates its Python runtime, and supports verified init/doctor/run workflows without global installation or elevated privileges.
