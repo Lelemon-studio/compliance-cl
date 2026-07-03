@@ -1,0 +1,22 @@
+run:
+  name: onprem-middleware-webgate
+  redaction: strict
+  offline_only: true
+  parallelism: 4
+
+oci:
+  enabled: false
+  regions: []
+  compartments: all
+  services: all
+
+onprem_db:
+  enabled: false
+
+onprem_middleware:
+  enabled: true
+  targets:
+    - type: webgate
+      name: replace-webgate-deployment
+      config_path: /replace/with/exported-config/webgate.json
+      read_config_only: true

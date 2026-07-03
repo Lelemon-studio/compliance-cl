@@ -168,8 +168,20 @@ Create a standalone, secret-free profile set under `collector/configs/` for ever
 
 | Owner | Files/task | State |
 |---|---|---|
-| `/root/onprem_collectors` | `collector/configs/onprem/**`, `collector/tests/test_config_profiles.py` | Planned reactivation after tracking commit |
-| `/root/security_auditor` | Independent read-only review for secret material, unsafe defaults, and misleading scopes | Planned reactivation after profiles exist |
-| `/root` | `collector/configs/oci/**`, `collector/configs/hybrid/**`, config index, main README, integration | Active |
+| `/root/onprem_collectors` | `collector/configs/onprem/**`, `collector/tests/test_config_profiles.py` | Complete; 68 focused checks passed |
+| `/root/security_auditor` | Independent read-only review for secret material, unsafe defaults, and misleading scopes | Complete; READY |
+| `/root` | `collector/configs/oci/**`, `collector/configs/hybrid/**`, config index, main README, integration | Complete |
 
 Conflicts: none.
+
+### Config-matrix result
+
+- Exact profile inventory: 19 YAML files; no extras.
+- Production parser/scope/placeholder/secret suite: 68 passed.
+- Wrapper offline dry-run matrix: 19 of 19 passed.
+- Full collector and repository-wide suites: 173 passed.
+- Independent AC-13 audit: READY; no remaining blocker.
+- Main README product guide: every supported product/service and all 19 profiles documented with prerequisites and wrapper examples.
+- Config index organized explicitly under `On-premises`, `OCI`, and `Hybrid` deployment categories.
+- Documentation contract: 4 passed; final full regression: 177 passed.
+- Product-scope documentation re-audit: READY; descriptions match implemented collection operations.

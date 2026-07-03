@@ -1,0 +1,19 @@
+run:
+  name: template-oci-compute-storage-oke
+  redaction: strict
+  offline_only: false
+  parallelism: 8
+
+oci:
+  enabled: true
+  auth: instance_principal
+  tenancy_ocid: "[REPLACE_TENANCY_OCID]"
+  regions: [sa-santiago-1]
+  compartments: all
+  services: [compute, block_storage, oke, object_storage, functions, container_instances]
+
+onprem_db:
+  enabled: false
+
+onprem_middleware:
+  enabled: false

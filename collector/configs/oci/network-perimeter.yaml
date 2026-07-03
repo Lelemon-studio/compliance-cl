@@ -1,0 +1,19 @@
+run:
+  name: template-oci-network-perimeter
+  redaction: strict
+  offline_only: false
+  parallelism: 8
+
+oci:
+  enabled: true
+  auth: instance_principal
+  tenancy_ocid: "[REPLACE_TENANCY_OCID]"
+  regions: [sa-santiago-1]
+  compartments: all
+  services: [networking, waf, network_firewall, load_balancer, bastion, certificates, api_gateway]
+
+onprem_db:
+  enabled: false
+
+onprem_middleware:
+  enabled: false

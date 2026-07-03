@@ -1,0 +1,22 @@
+run:
+  name: onprem-middleware-weblogic
+  redaction: strict
+  offline_only: true
+  parallelism: 4
+
+oci:
+  enabled: false
+  regions: []
+  compartments: all
+  services: all
+
+onprem_db:
+  enabled: false
+
+onprem_middleware:
+  enabled: true
+  targets:
+    - type: weblogic
+      name: replace-weblogic-domain
+      config_path: /replace/with/exported-config/weblogic.json
+      read_config_only: true

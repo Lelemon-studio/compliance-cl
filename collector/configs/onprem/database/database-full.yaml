@@ -1,0 +1,34 @@
+run:
+  name: onprem-database-full
+  redaction: strict
+  offline_only: true
+  parallelism: 4
+
+oci:
+  enabled: false
+  regions: []
+  compartments: all
+  services: all
+
+onprem_db:
+  enabled: true
+  dbsat:
+    binary: /replace/with/dbsat/bin/dbsat
+    targets:
+      - alias: replace-database-alias
+        connect: "replace_reader@//replace-db-host:1521/replace-service"
+        wallet: /replace/with/read-only-wallet-directory
+    report_formats: [json]
+    exclude_sections: []
+  direct_sql:
+    enabled: true
+    role: readonly_monitor
+    targets:
+      - alias: replace-database-alias
+        dsn: "replace-db-host:1521/replace-service"
+        username: replace_catalog_reader
+        wallet_location: /replace/with/read-only-wallet-directory
+
+onprem_middleware:
+  enabled: false
+  targets: []

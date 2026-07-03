@@ -106,8 +106,32 @@ Add discovery and validation tests before the profile tree exists. Tests will re
 
 ### Green
 
-Pending.
+- Tests were authored against the complete approved tree before all profile owners finished writing their files.
+- The system interpreter initially stopped during collection because the declared PyYAML dependency was absent; the isolated dependency-complete validation environment was used for behavioral results.
+- Focused GREEN: `test_config_profiles.py` → 68 passed.
+- All 19 profiles load through production `load_config` with unique safe run names, expected source/service scopes, replacement markers, and no embedded secret material.
 
 ### Refactor
 
-Pending.
+- Grouped profiles by `onprem/database`, `onprem/middleware`, `oci`, and `hybrid`.
+- Added an index with environment-copy instructions and wrapper commands.
+- Documented that middleware selection is profile-based because the current CLI filter groups all middleware under `middleware`.
+- Kept every profile standalone; no YAML merge/include mechanism or secret-bearing defaults were introduced.
+
+### Config-matrix validation
+
+- `python -m pytest collector/tests/test_config_profiles.py -q` → 68 passed.
+- Wrapper `--dry-run --offline-only` over all profiles → 19 passed, 0 failed.
+- `python -m pytest collector/tests -q` → 173 passed.
+- `python -m pytest -q` → 173 passed repository-wide.
+- `bash -n collector/run-collector.sh`, executable mode, and `git diff --check` → passed.
+- Independent AC-13 audit → READY.
+
+### Product-guide documentation cycle
+
+- RED: three failures showed 27 missing product names, all 19 missing profile references, and insufficient stack-family wrapper examples in the main README.
+- GREEN: three documentation-contract tests passed after adding product-by-product evidence scope, prerequisites, profile mapping, and wrapper commands.
+- RED: one additional failure showed that the config index did not expose the required `On-premises`, `OCI`, and `Hybrid` section headings.
+- GREEN: four documentation-contract tests passed after reorganizing the 19 profiles under those deployment categories.
+- Independent review initially identified OCI descriptions broader than the implemented operations; the wording was narrowed to the exact collected summaries and the re-audit returned READY.
+- Final collector and repository-wide suites → 177 passed each.

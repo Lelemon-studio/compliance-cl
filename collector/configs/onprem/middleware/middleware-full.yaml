@@ -1,0 +1,46 @@
+run:
+  name: onprem-middleware-full
+  redaction: strict
+  offline_only: true
+  parallelism: 4
+
+oci:
+  enabled: false
+  regions: []
+  compartments: all
+  services: all
+
+onprem_db:
+  enabled: false
+
+onprem_middleware:
+  enabled: true
+  targets:
+    - type: weblogic
+      name: replace-weblogic-domain
+      config_path: /replace/with/exported-config/weblogic.json
+      read_config_only: true
+    - type: ohs
+      name: replace-ohs-instance
+      config_path: /replace/with/exported-config/ohs.json
+      read_config_only: true
+    - type: oam
+      name: replace-oam-deployment
+      config_path: /replace/with/exported-config/oam.json
+      read_config_only: true
+    - type: oaa
+      name: replace-oaa-deployment
+      config_path: /replace/with/exported-config/oaa.json
+      read_config_only: true
+    - type: webgate
+      name: replace-webgate-deployment
+      config_path: /replace/with/exported-config/webgate.json
+      read_config_only: true
+    - type: oag
+      name: replace-oag-deployment
+      config_path: /replace/with/exported-config/oag.json
+      read_config_only: true
+    - type: avdf
+      name: replace-avdf-deployment
+      config_path: /replace/with/exported-config/avdf.json
+      read_config_only: true

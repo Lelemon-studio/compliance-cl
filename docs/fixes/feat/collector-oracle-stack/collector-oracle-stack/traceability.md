@@ -14,7 +14,7 @@
 | AC-10 | Both JSON schemas | Metaschema checks and generated bundle validation | Passed |
 | AC-11 | `collector/README.md`, example config | Documentation review and CLI smoke | Passed |
 | AC-12 | `collector/run-collector.sh`, README wrapper section | Bash syntax, 30 focused wrapper tests, 105-test regression, wrapper smoke | Passed |
-| AC-13 | `collector/configs/**`, config index, main README | Profile discovery/parser/scope/secret tests, dry-run matrix, full regression | Planned follow-up |
+| AC-13 | `collector/configs/**`, config index, main README | 68 profile checks, 4 product/category guide checks, 19/19 wrapper dry-runs, 177-test regression, independent audit | Passed |
 
 ## Final validation matrix
 
@@ -29,3 +29,5 @@ Validation environment: isolated temporary Python 3.14 environment for core test
 - Coverage honesty: a service with no successful operation is skipped and never marked scanned.
 - Independent re-audit: READY; AC-03, AC-04, AC-06, and prior security findings passed.
 - Wrapper follow-up audit: READY; argument safety, resolution, validation, and exit propagation passed.
+- Config-profile audit: READY; exact inventory, secret absence, read-only DB identities, OCI services/auth, section scope, placeholders, and documentation passed.
+- Product-scope and deployment-category re-audit: READY; implemented OCI operations and all `On-premises`, `OCI`, and `Hybrid` profile paths match the documentation.

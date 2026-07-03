@@ -64,12 +64,24 @@ Observed gap: the project has one broad example configuration, but operators nee
 
 ### How It Was Fixed
 
-Pending implementation.
+Added 19 standalone YAML profiles: three database, seven single middleware plus one combined middleware, seven OCI slices, and one hybrid profile. Added a profile index with stack/environment-copy guidance and wrapper examples. Added automated discovery, production-parser, scope, service-subset, unique-name, replacement-marker, read-only middleware, and secret-material checks.
 
 ### Summary
 
-Tracking opened for the approved `collector/configs/` profile matrix, automated parser/scope/secret tests, and selection documentation.
+- Added `collector/configs/onprem/database/` profiles for DBSAT, direct SQL, and combined collection.
+- Added `collector/configs/onprem/middleware/` profiles for every supported middleware type and the combined stack.
+- Added seven OCI layer profiles and one hybrid profile.
+- Added `collector/configs/README.md` and linked it from the main collector README.
+- Categorized the configuration index by deployment model: `On-premises`, `OCI`, and `Hybrid`.
+- Added `collector/tests/test_config_profiles.py`.
+- Expanded `collector/README.md` with a product-by-product operator guide covering every supported Oracle/OCI service, its evidence, profile, prerequisites, and execution command.
+- Added `collector/tests/test_readme_products.py` to keep product and profile documentation complete.
 
 ### Validation
 
-Pending.
+- Focused profile tests → 68 passed.
+- Wrapper dry-run matrix → 19 of 19 profiles passed.
+- Product-guide and deployment-category documentation tests → 4 passed.
+- Full collector and repository-wide suites → 177 passed each.
+- Independent profile safety/scope audit → READY.
+- Independent product-scope and profile-category re-audit → READY.

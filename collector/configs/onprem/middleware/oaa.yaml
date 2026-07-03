@@ -1,0 +1,22 @@
+run:
+  name: onprem-middleware-oaa
+  redaction: strict
+  offline_only: true
+  parallelism: 4
+
+oci:
+  enabled: false
+  regions: []
+  compartments: all
+  services: all
+
+onprem_db:
+  enabled: false
+
+onprem_middleware:
+  enabled: true
+  targets:
+    - type: oaa
+      name: replace-oaa-deployment
+      config_path: /replace/with/exported-config/oaa.json
+      read_config_only: true

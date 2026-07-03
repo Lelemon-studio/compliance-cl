@@ -1,0 +1,19 @@
+run:
+  name: template-oci-database-data-safe
+  redaction: strict
+  offline_only: false
+  parallelism: 6
+
+oci:
+  enabled: true
+  auth: instance_principal
+  tenancy_ocid: "[REPLACE_TENANCY_OCID]"
+  regions: [sa-santiago-1]
+  compartments: all
+  services: [data_safe, database, goldengate, mysql, postgresql, nosql]
+
+onprem_db:
+  enabled: false
+
+onprem_middleware:
+  enabled: false

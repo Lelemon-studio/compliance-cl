@@ -1,0 +1,19 @@
+run:
+  name: template-oci-identity-governance
+  redaction: strict
+  offline_only: false
+  parallelism: 4
+
+oci:
+  enabled: true
+  auth: instance_principal
+  tenancy_ocid: "[REPLACE_TENANCY_OCID]"
+  regions: [sa-santiago-1]
+  compartments: all
+  services: [iam, cloud_guard, security_zones, vault]
+
+onprem_db:
+  enabled: false
+
+onprem_middleware:
+  enabled: false

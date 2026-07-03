@@ -1,0 +1,19 @@
+run:
+  name: template-oci-object-storage
+  redaction: strict
+  offline_only: false
+  parallelism: 4
+
+oci:
+  enabled: true
+  auth: instance_principal
+  tenancy_ocid: "[REPLACE_TENANCY_OCID]"
+  regions: [sa-santiago-1]
+  compartments: all
+  services: [object_storage]
+
+onprem_db:
+  enabled: false
+
+onprem_middleware:
+  enabled: false

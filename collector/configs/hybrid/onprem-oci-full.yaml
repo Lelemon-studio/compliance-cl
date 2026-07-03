@@ -1,0 +1,43 @@
+run:
+  name: template-hybrid-onprem-oci-full
+  redaction: strict
+  offline_only: false
+  parallelism: 8
+
+oci:
+  enabled: true
+  auth: instance_principal
+  tenancy_ocid: "[REPLACE_TENANCY_OCID]"
+  regions: [sa-santiago-1]
+  compartments: all
+  services: all
+
+onprem_db:
+  enabled: true
+  dbsat:
+    binary: "[REPLACE_DBSAT_BINARY_PATH]"
+    targets:
+      - alias: hybrid-db
+        connect: "[REPLACE_MONITOR_USERNAME]@[REPLACE_DB_CONNECT_IDENTIFIER]"
+        wallet: "[REPLACE_WALLET_DIRECTORY]"
+    report_formats: [json]
+    exclude_sections: []
+  direct_sql:
+    enabled: true
+    role: readonly_monitor
+    targets:
+      - alias: hybrid-db
+        dsn: "[REPLACE_DB_DSN]"
+        user: "[REPLACE_MONITOR_USERNAME]"
+        wallet_location: "[REPLACE_WALLET_DIRECTORY]"
+
+onprem_middleware:
+  enabled: true
+  targets:
+    - {type: weblogic, name: hybrid-weblogic, config_path: "[REPLACE_WEBLOGIC_EXPORT_JSON]", read_config_only: true}
+    - {type: ohs, name: hybrid-ohs, config_path: "[REPLACE_OHS_EXPORT_JSON]", read_config_only: true}
+    - {type: oam, name: hybrid-oam, config_path: "[REPLACE_OAM_EXPORT_JSON]", read_config_only: true}
+    - {type: oaa, name: hybrid-oaa, config_path: "[REPLACE_OAA_EXPORT_JSON]", read_config_only: true}
+    - {type: webgate, name: hybrid-webgate, config_path: "[REPLACE_WEBGATE_EXPORT_JSON]", read_config_only: true}
+    - {type: oag, name: hybrid-oag, config_path: "[REPLACE_OAG_EXPORT_JSON]", read_config_only: true}
+    - {type: avdf, name: hybrid-avdf, config_path: "[REPLACE_AVDF_EXPORT_JSON]", read_config_only: true}
