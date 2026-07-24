@@ -20,7 +20,7 @@
 | Delegado de protección (DPO) | en Modelo de Prevención (~Arts. 49-50) | en micro/pequeña/mediana **el dueño puede asumir** la función | L2281, **L2322** |
 | **Infracciones (clasificación)** | **Art. 34** | leves / graves / gravísimas | L1742 |
 | **Sanciones (montos)** | **Art. 35** | leves: amonestación o **hasta 5.000 UTM**; graves: **hasta 10.000 UTM**; gravísimas: **hasta 20.000 UTM** | L1855 |
-| Reincidencia | Art. 35 (inciso) | empresas de menor tamaño (Ley 20.416) que reincidan: **2% o 4% de ingresos anuales** del último año; def. de reincidencia = sancionado 2+ veces | L1870, L1877, L1899 |
+| Reincidencia | Art. 35 (inciso) | reincidencia general (Art. 36 a): multa de hasta **3 veces** el monto de la infracción. El recargo de **2% / 4% de ingresos anuales** aplica solo a empresas **distintas** de las de menor tamaño (Ley 20.416, art. segundo) — es decir, **NO** a MIPYMES | L1870, L1873-1878 |
 | **Gracia MIPYME (12 meses)** | **Art. sexto transitorio** | primeros doce meses desde la vigencia | L2529 |
 | Plazo de respuesta a derechos | Art. 11 (verificar nº) | 30 días corridos, prorrogable **una sola vez** por 30 más | L478 |
 | Gratuidad de derechos | (verificar nº) | rectificación/supresión/oposición siempre gratis; **acceso gratis al menos trimestral** | L430-L434 |
@@ -30,8 +30,10 @@
 - **Sanciones NO son "Art. 34 bis/ter/quáter"** → son **Art. 34** (clasificación) + **Art. 35** (montos).
 - **La ley NO fija "72 horas"** para brechas → dice **"sin dilaciones indebidas"** (Art. 14 sexies). Las 72h
   son estándar GDPR, no texto chileno. (Confirmar si el reglamento las fija.)
-- **Reincidencia con % de ingresos** aplica a **empresas de menor tamaño** (Ley 20.416), no "solo grandes"
-  como decía un blog → confirmar el detalle con el texto/abogado.
+- **Reincidencia con % de ingresos (2% / 4%)**: el texto oficial dice "una empresa **distinta** de aquéllas
+  definidas como empresas de menor tamaño en el artículo segundo de la ley N° 20.416" (L1873-1874) → aplica
+  a empresas **grandes**, NO a MIPYMES. Para una MIPYME reincidente rige el inciso anterior: hasta **3 veces**
+  el monto de la infracción. (Corregido 2026-07-24 contra `sources/ley-21719-texto.txt`.)
 
 ## Confirmados (coinciden con lo investigado)
 Consentimiento Art. 12 · Deber de información Art. 14 ter · Brechas Art. 14 sexies · Encargado/DPA
