@@ -14,8 +14,30 @@ Si algo no se puede verificar contra estos textos, se marca `[verificar contra f
 | `ley-20393-resp-penal-pj.xml` | Ley 20.393 Resp. Penal PJ | 1008668 | XML | `35d67a14…` | Ley Chile (BCN) |
 | `ley-19628-consolidada.xml` | Ley 19.628 (texto base que la 21.719 modifica) | 141599 | XML | `4b4a6d85…` | Ley Chile (BCN) |
 | `clausulas-modelo-transferencia-economia.pdf/.txt` | Cláusulas Contractuales Modelo (transferencia internacional) | RAEX202503748 | **PDF + texto** | `55f78aef…` | Diario Oficial 19-12-2025 |
-| `codigo-tributario-dl830.xml` | Código Tributario (DL 830) | 6374 | XML **con texto íntegro** | `5951bfb4…` | Ley Chile (BCN) |
-| `codigo-del-trabajo.xml` | Código del Trabajo (DFL 1) | 207436 | XML **con texto íntegro** | `b66efa69…` | Ley Chile (BCN) |
+
+## Códigos que NO se versionan acá (se descargan, no se redistribuyen)
+
+Este repo es **público**, y la licencia de redistribución del texto de Ley Chile **no está confirmada con la
+BCN**. Los textos de la 21.719/21.595/20.393/19.628 vienen de arriba por decisión previa; para los códigos
+—que son mucho más extensos— se optó por **no publicarlos y dejar la receta de descarga**, que es
+reproducible y no redistribuye nada. Bajarlos es una línea y quedan igual de citables.
+
+| Norma | idNorma | SHA-256 esperado (trunc.) | Sostiene |
+|---|---|---|---|
+| Código Tributario (DL 830) | **6374** | `5951bfb4…` | art. 17 inc. 2° + art. 200 — conservación de libros y el plazo de revisión del SII |
+| Código del Trabajo (DFL 1) | **207436** | `b66efa69…` | art. 62 — libro auxiliar de remuneraciones (desde 5 trabajadores) |
+
+```bash
+UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124.0 Safari/537.36"
+curl -L -A "$UA" "https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=6374"   -o codigo-tributario-dl830.xml
+curl -L -A "$UA" "https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=207436" -o codigo-del-trabajo.xml
+sha256sum codigo-*.xml   # deben partir con los prefijos de la tabla
+```
+
+**Si trabajas en Lelemon hay un atajo mejor:** el corpus legal interno ya los tiene **por artículo, en
+Markdown, con frontmatter de vigencia e historial de versiones** (`normas/leyes/dl-830-codigo-tributario/`,
+`normas/laboral-previsional/dfl-1-codigo-trabajo/`). Es más cómodo de citar que el XML crudo. Es privado, así
+que no se referencia por URL acá.
 
 ## Notas de validez (IMPORTANTE)
 - **La 21.719 MODIFICA la Ley 19.628**: el articulado sustantivo de datos (consentimiento,
@@ -36,7 +58,8 @@ procede la supresión cuando el tratamiento es necesario para cumplir una **obli
 obligación la pone *otra* ley. Sin estos dos textos, toda negativa a suprimir datos contables o de
 remuneraciones quedaba citada de memoria — y el art. 11 exige que la negativa sea **fundada**.
 
-Los tres artículos que sostienen los plazos, verificados palabra por palabra contra los XML de acá:
+Los tres artículos que sostienen los plazos, **verificados palabra por palabra contra el XML de la BCN**
+(descargado con la receta de abajo; el texto no se versiona en este repo público):
 
 - **Código Tributario art. 17 inc. 2°** — *"Los libros de contabilidad deberán ser llevados en lengua
   castellana […] debiendo ser conservados por los contribuyentes, junto con la documentación
