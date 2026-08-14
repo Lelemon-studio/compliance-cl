@@ -119,3 +119,5 @@ re-corridas periódicas** (`references/revisiones-periodicas.md`) para detectar 
   `/schedule`) para detectar drift entre corridas.
 - `packs/ley-21719/`, `packs/ley-21595/` — obligaciones + plantillas por marco.
 - `sources/` — textos legales oficiales (ley 21.719 PDF/txt, cláusulas modelo, XML) + `FUENTES.md`.
+  Incluye el **Código Tributario** y el **Código del Trabajo**: sin ellos, una retención de datos queda sin
+  fundamento, porque la 21.719 remite a la obligación legal pero la pone otra ley (ver `FUENTES.md`).

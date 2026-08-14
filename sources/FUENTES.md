@@ -14,6 +14,8 @@ Si algo no se puede verificar contra estos textos, se marca `[verificar contra f
 | `ley-20393-resp-penal-pj.xml` | Ley 20.393 Resp. Penal PJ | 1008668 | XML | `35d67a14…` | Ley Chile (BCN) |
 | `ley-19628-consolidada.xml` | Ley 19.628 (texto base que la 21.719 modifica) | 141599 | XML | `4b4a6d85…` | Ley Chile (BCN) |
 | `clausulas-modelo-transferencia-economia.pdf/.txt` | Cláusulas Contractuales Modelo (transferencia internacional) | RAEX202503748 | **PDF + texto** | `55f78aef…` | Diario Oficial 19-12-2025 |
+| `codigo-tributario-dl830.xml` | Código Tributario (DL 830) | 6374 | XML **con texto íntegro** | `5951bfb4…` | Ley Chile (BCN) |
+| `codigo-del-trabajo.xml` | Código del Trabajo (DFL 1) | 207436 | XML **con texto íntegro** | `b66efa69…` | Ley Chile (BCN) |
 
 ## Notas de validez (IMPORTANTE)
 - **La 21.719 MODIFICA la Ley 19.628**: el articulado sustantivo de datos (consentimiento,
@@ -22,7 +24,37 @@ Si algo no se puede verificar contra estos textos, se marca `[verificar contra f
   aún NO integra esas modificaciones (vigencia futura) → no usarlo como operativo de la parte nueva.
 - Los **XML de Ley Chile (opt=7) son ABREVIADOS** (encabezados/estructura). Para texto íntegro usar el
   PDF del Diario Oficial o el visor de BCN.
+  **Excepción comprobada (14-ago-2026):** los de los dos códigos que se agregaron ahora **sí traen el texto
+  íntegro** de cada artículo, verificado buscando los incisos citados abajo. Si a futuro un XML no trae el
+  texto, no asumas que ninguno lo trae: revisa el archivo.
 - La **21.595 ya está vigente** (modifica la 20.393; rige desde 1-sep-2024).
+
+### Por qué están el Código Tributario y el del Trabajo (14-ago-2026)
+
+Una **retención** de datos personales no se sostiene sola: el art. 7 romanito ii) de la 21.719 dice que no
+procede la supresión cuando el tratamiento es necesario para cumplir una **obligación legal**, pero la
+obligación la pone *otra* ley. Sin estos dos textos, toda negativa a suprimir datos contables o de
+remuneraciones quedaba citada de memoria — y el art. 11 exige que la negativa sea **fundada**.
+
+Los tres artículos que sostienen los plazos, verificados palabra por palabra contra los XML de acá:
+
+- **Código Tributario art. 17 inc. 2°** — *"Los libros de contabilidad deberán ser llevados en lengua
+  castellana […] debiendo ser conservados por los contribuyentes, junto con la documentación
+  correspondiente, mientras esté pendiente el plazo que tiene el Servicio para la revisión de las
+  declaraciones."* El plazo no está acá: está en el art. 200.
+- **Código Tributario art. 200** — tres años desde que expiró el plazo legal de pago; **seis** para
+  impuestos sujetos a declaración *"cuando ésta no se hubiere presentado o la presentada fuere
+  maliciosamente falsa"*.
+- **Código del Trabajo art. 62** — *"Todo empleador con cinco o más trabajadores deberá llevar un libro
+  auxiliar de remuneraciones, el que deberá ser timbrado por el Servicio de Impuestos Internos"*, y las
+  remuneraciones que figuren ahí son las únicas imputables como gasto en la contabilidad.
+
+⚠️ **Dos límites que hay que respetar al citarlos:**
+1. El art. 62 aplica **desde 5 trabajadores**. Bajo ese umbral no hay obligación de llevar el libro y la
+   retención se sostiene solo en el art. 17 del Tributario — que sí aplica siempre, porque el gasto por
+   remuneraciones es parte de la contabilidad. Al fundar una negativa, **citar ambos**.
+2. **Ninguno de los dos fija un plazo laboral de conservación en años.** El plazo que se le informa al
+   titular es siempre el tributario del art. 200. No inventar uno laboral.
 
 ## Pendientes de incorporar (con URL, aún no descargados)
 - **DS 662/2025** (reglamento del Modelo de Prevención de Infracciones, Min. Hacienda/Economía):
@@ -39,6 +71,9 @@ UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124.0 Safari/537.36"
 curl -L -A "$UA" "https://www.diariooficial.interior.gob.cl/publicaciones/2024/12/13/44023/01/2583630.pdf" -o ley-21719-diariooficial.pdf
 # XML estructurado (cambiar idNorma): 21719=1209272, 21595=1195119, 20393=1008668, 19628=141599
 curl -L -A "$UA" "https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=1209272" -o ley-21719-datos.xml
+# Códigos que sostienen los plazos de conservación (traen texto íntegro)
+curl -L -A "$UA" "https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=6374"   -o codigo-tributario-dl830.xml
+curl -L -A "$UA" "https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=207436" -o codigo-del-trabajo.xml
 # Cláusulas contractuales modelo (transferencia internacional, Min. Economía)
 curl -L -A "$UA" "https://www.diariooficial.interior.gob.cl/publicaciones/2025/12/19/44328/01/2742586.pdf" -o clausulas-modelo-transferencia-economia.pdf
 # Verificar integridad
