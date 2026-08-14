@@ -25,8 +25,9 @@ Tres estrategias, se combinan según el dato:
 - **Conservación legal:** lo que la ley obliga a guardar (datos tributarios) NO se borra; se aísla/retiene
   el plazo legal y se anonimiza lo que no sea necesario. La obligación la pone otra ley, no la 21.719:
   **Código Tributario art. 17 inc. 2° + art. 200**, y **Código del Trabajo art. 62** para el libro de
-  remuneraciones (desde 5 trabajadores). Los textos están en `sources/`; los límites de cada cita, en
-  `sources/FUENTES.md`.
+  remuneraciones (desde 5 trabajadores). Esos textos **no se versionan acá** (repo público, licencia de
+  redistribución de la BCN sin confirmar): `sources/FUENTES.md` trae el idNorma, el SHA-256 esperado y el
+  `curl` para bajarlos, más los límites de cada cita.
 
 ### 2 bis. Lecciones de implementarlo (plataforma-contable, ago-2026)
 
