@@ -21,7 +21,7 @@ trimestre (se puede cobrar si pide acceso/portabilidad más de una vez en el tri
 1. **Contén:** aísla, revoca accesos, rota credenciales. Abre bitácora.
 2. **Evalúa:** qué datos, cuántos titulares, nivel de riesgo. Si fue un proveedor, exígele la info.
 3. **Notifica:** a la **Agencia** (naturaleza, datos, volumen, consecuencias, medidas); a los **titulares**
-   si hay riesgo alto o si afecta datos **sensibles, económicos/financieros/bancarios o de niños/niñas**.
+   si afecta datos **sensibles, económicos/financieros/bancarios o de niños/niñas**.
    Si eres encargado, avisa también al **cliente responsable**.
 4. **Registra** la vulneración en `registro-vulneraciones.md` aunque no la notifiques.
 5. **Cierra:** causa raíz + fix + actualiza RAT y este plan. No notificar deliberadamente = gravísima.
@@ -45,7 +45,7 @@ Este es el único caso donde conviene un **[ABOGADO]** (la representación es re
 | Cuándo | Qué | Quién |
 |---|---|---|
 | Anual (o ante cambios) | Revisar y actualizar el **RAT** | Responsable de datos |
-| Anual | **Supervisión externa del MPD** (21.595, obligatoria) | consultor/tercero independiente |
+| Anual (recomendado) | **Evaluación por tercero independiente del MPD** (Ley 20.393 art. 4 N°4; la ley dice "periódica") | consultor/tercero independiente |
 | Anual | Capacitación del equipo | Responsable |
 | Al firmar/renovar proveedor | DPA + anexo de transferencia (cláusulas modelo) | Responsable |
 | Cada release relevante | Re-correr `/compliance-cl` (drift) | Dev |
