@@ -22,19 +22,25 @@
   acceso gratis al menos trimestralmente.
 - **Seguridad (Art. 14 quinquies)** proporcional + **privacy by design/default (Art. 14 quáter)** +
   seudonimización. **Brechas (Art. 14 sexies):** reportar **sin dilaciones indebidas** (NO 72h),
-  registrar las vulneraciones, avisar a titulares si riesgo alto o si afecta datos sensibles/
+  registrar las vulneraciones; a la Agencia cuando haya "riesgo razonable" para los titulares, y a los
+  titulares cuando afecte datos sensibles/
   económicos/financieros/niños.
 - **Datos sensibles (Art. 16):** consentimiento expreso y reforzado.
-- **DPO:** obligatorio solo para organismos públicos o datos sensibles a gran escala; en micro/pyme lo
-  asume el dueño.
+- **DPO (Arts. 49-50):** la ley **no** lo hace obligatorio: el responsable "podrá designar" un delegado
+  (Art. 50), y es un elemento del Modelo de Prevención de Infracciones, que es voluntario (Art. 49). En
+  micro/pequeña/mediana el dueño puede asumir la función. (La regla "obligatorio si hay datos sensibles a gran
+  escala" es del GDPR, no de la 21.719.)
 - **EIPD (Art. 15 ter):** obligatoria ante alto riesgo (perfilado, decisiones automatizadas, sensibles
   masivos, observación sistemática, tecnología nueva).
 - **Transferencias internacionales:** mecanismo válido = **cláusulas contractuales modelo** del Min.
   Economía (en `sources/`), adecuación, normas corporativas vinculantes o consentimiento.
 
 ## Sanciones (Art. 34 clasificación + Art. 35 montos — verificado)
+Clasificación: Art. 34 + listas en Arts. 34 bis (leves), 34 ter (graves) y 34 quáter (gravísimas).
 Leve: amonestación o hasta 5.000 UTM · grave hasta 10.000 UTM · gravísima hasta 20.000 UTM.
-Reincidencia (Art. 35): empresas de menor tamaño → 2% o 4% de ingresos anuales. Fiscaliza la Agencia.
+Reincidencia (Art. 35 + Art. 36 a): multa de hasta 3 veces el monto; y para empresas que **NO** son de menor
+tamaño (Ley 20.416) que reincidan en grave/gravísima, hasta el **2% o 4%** de los ingresos anuales del último año.
+Reincidencia = 2 o más sanciones firmes en los últimos **30 meses**. Fiscaliza la Agencia.
 
 ## Atenuante
 **MPI** (Modelo de Prevención de Infracciones, Arts. 49-53), voluntario, lo certifica la Agencia.

@@ -18,10 +18,10 @@ criterio de la ley y te da el resultado**, no te deja la tarea.
 - Atender derechos de titulares y responder una brecha con los runbooks.
 
 ## Lo único que SÍ requiere un tercero (honesto, no es abogado necesariamente)
-- **Supervisión externa anual del MPD (Ley 21.595):** la ley reemplazó la certificación por una
-  supervisión periódica de un **tercero independiente** (un consultor competente, ~UF 3-5; **no
-  necesariamente abogado**). Es el único componente que no puedes autoproveerte; sin ella el MPD no se
-  considera "adecuado" para eximir de responsabilidad penal.
+- **Supervisión externa anual del MPD (Ley 21.595):** la ley pide "evaluaciones periódicas por terceros
+  independientes" (Ley 20.393 art. 4 N°4). La frecuencia (p. ej. anual) y el costo no los fija la ley;
+  **no necesariamente abogado**. Es el único componente que no puedes autoproveerte, y su ausencia debilita
+  el modelo como defensa.
 - **Representación ante la Agencia o tribunales** si te fiscalizan y escala a disputa (*patrocinio*, solo
   abogado habilitado). Es **reactivo**: para prepararte y cumplir no lo necesitas, y la skill ya te dejó
   el expediente armado para defenderte.

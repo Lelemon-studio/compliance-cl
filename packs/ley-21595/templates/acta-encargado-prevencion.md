@@ -19,7 +19,7 @@ operaciones riesgosas] para ejercer su función.
 - Mantener y actualizar el Modelo de Prevención de Delitos y la matriz de riesgos.
 - Operar el canal de denuncias y dirigir las investigaciones internas.
 - Coordinar la capacitación del personal.
-- Gestionar la **supervisión externa periódica** (anual) por un tercero independiente.
+- Gestionar la **evaluación periódica por un tercero independiente** (frecuencia recomendada: anual).
 - Reportar periódicamente a la administración.
 
 ## 4. Aprobación
