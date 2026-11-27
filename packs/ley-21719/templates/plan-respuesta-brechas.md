@@ -18,7 +18,7 @@
 
 ## Fase 3 — Notificación (sin dilaciones indebidas)
 1. **A la Agencia:** naturaleza, categorías y volumen, consecuencias probables, medidas, contacto.
-2. **A los titulares:** cuando haya riesgo alto, y también si afecta **datos sensibles, económicos/
+2. **A los titulares:** si afecta **datos sensibles, económicos/
    financieros/bancarios o de niños, niñas y adolescentes**: qué pasó, qué datos, qué pueden hacer, contacto.
 
 ## Fase 4 — Cierre y mejora
