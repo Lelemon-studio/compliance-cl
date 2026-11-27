@@ -17,9 +17,10 @@
 4. Canal de denuncias anónimo + protección al denunciante (reglamento).
 5. Capacitación periódica.
 6. Régimen disciplinario.
-7. **Supervisión externa periódica (anual) por un tercero independiente** — reemplazó a la antigua
-   certificación; sin ella el modelo no se considera "adecuado". (Único componente NO self-service:
-   requiere un tercero, ~UF 3-5; no necesariamente abogado.)
+7. **Evaluaciones periódicas por terceros independientes** y mecanismos de mejora a partir de ellas
+   (Ley 20.393 art. 4 N°4, modificada por la 21.595). La ley no fija la frecuencia: "anual" es una buena
+   práctica, no un plazo legal. Es el único componente NO self-service (requiere un tercero independiente;
+   no necesariamente abogado). Costo: [verificar con cotizaciones; la ley no lo fija].
 
 ## Foco de riesgo para un SaaS
 Delitos informáticos (acceso/uso indebido de datos de terceros), tributarios, lavado/cohecho, fraude,
